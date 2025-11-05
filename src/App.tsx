@@ -2,14 +2,12 @@ import { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SteamEffect from './components/SteamEffect';
 import FloatingBaos from './components/FloatingBaos';
-import SocialLinks from './components/SocialLinks';
 import Typewriter from './components/Typewriter';
 import TiltWrapper from './components/TiltWrapper';
 import AnimatedSteam from './components/AnimatedSteam';
 import InstagramCTA from './components/InstagramCTA';
 import LoadingScreen from './components/LoadingScreen';
 import AnimatedGridBackground from './components/AnimatedGridBackground';
-import RealVisitorCounter from './components/RealVisitorCounter';
 import CountdownTimer from './components/CountdownTimer';
 import BaoFacts from './components/BaoFacts';
 
@@ -158,25 +156,15 @@ export default function App() {
           <InstagramCTA />
         </div>
 
-        {/* Visitor Counter */}
-        <div className="mb-4">
-          <RealVisitorCounter />
-        </div>
-
         {/* Bao Facts */}
         <BaoFacts />
-
-        {/* Social Media Links */}
-        <div className="mt-6">
-          <SocialLinks />
-        </div>
 
         {/* Footer Note */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.8, duration: 0.6 }}
-          className="mt-4 text-center text-bao-gray-dark text-xs"
+          className="mt-6 text-center text-bao-gray-dark text-xs"
         >
           <p>Follow our journey • Opening Early 2026</p>
         </motion.div>
