@@ -4,7 +4,6 @@ import SteamEffect from './components/SteamEffect';
 import FloatingBaos from './components/FloatingBaos';
 import SocialLinks from './components/SocialLinks';
 import Typewriter from './components/Typewriter';
-import VisitorCounter from './components/VisitorCounter';
 import TiltWrapper from './components/TiltWrapper';
 import AnimatedSteam from './components/AnimatedSteam';
 import InstagramCTA from './components/InstagramCTA';
@@ -33,7 +32,7 @@ export default function App() {
       {isLoading ? (
         <LoadingScreen key="loading" />
       ) : (
-    <div key="main" className="relative min-h-screen overflow-hidden">
+    <div key="main" className="relative h-screen overflow-hidden">
       {/* Animated Grid Background (shadcn-inspired) */}
       <AnimatedGridBackground />
 
@@ -44,17 +43,17 @@ export default function App() {
       <FloatingBaos />
 
       {/* Main Content Container */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-12">
+      <div className="relative z-10 flex flex-col items-center justify-center h-screen px-6 py-4">
 
         {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="relative mb-8"
+          className="relative mb-4"
         >
           {/* Logo Container with Steam Effect */}
-          <div className="relative w-48 h-48 sm:w-56 sm:h-56 flex items-center justify-center">
+          <div className="relative w-40 h-40 sm:w-48 sm:h-48 flex items-center justify-center">
             <SteamEffect />
 
             {/* Golden glow background for logo visibility */}
@@ -98,21 +97,20 @@ export default function App() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-6"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-gray-800 mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-gray-800 mb-3">
             Something Delicious <br className="sm:hidden" />
             <span className="text-bao-golden">
               <Typewriter text="is Steaming..." delay={1000} speed={100} />
             </span>
           </h1>
 
-          {/* Typewriter effect for subtitle */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9, duration: 0.6 }}
-            className="text-xl sm:text-2xl text-bao-gray-dark font-light"
+            className="text-lg sm:text-xl text-bao-gray-dark font-light"
           >
             Fresh steamed baos arriving soon to Copenhagen
           </motion.p>
@@ -123,10 +121,10 @@ export default function App() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.0, duration: 0.5, type: 'spring' }}
-          className="mb-8"
+          className="mb-4"
         >
-          <div className="px-8 py-3 rounded-full bg-bao-golden/10 border-2 border-bao-golden/30 backdrop-blur-sm">
-            <span className="text-bao-golden font-semibold text-lg tracking-wider">
+          <div className="px-6 py-2 rounded-full bg-bao-golden/10 border-2 border-bao-golden/30 backdrop-blur-sm">
+            <span className="text-bao-golden font-semibold text-base tracking-wider">
               COMING SOON
             </span>
           </div>
@@ -137,9 +135,9 @@ export default function App() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.1, duration: 0.6 }}
-          className="mb-10 text-center"
+          className="mb-6 text-center"
         >
-          <p className="text-gray-700 text-lg font-medium">
+          <p className="text-gray-700 text-base font-medium">
             📍 Åboulevard 9, 1635 København V
           </p>
           <p className="text-gray-500 text-sm mt-1">
@@ -147,11 +145,8 @@ export default function App() {
           </p>
         </motion.div>
 
-        {/* Visitor Counter */}
-        <VisitorCounter targetCount={1247} />
-
         {/* Instagram Call-to-Action */}
-        <div className="w-full max-w-2xl mb-8">
+        <div className="w-full max-w-xl mb-4">
           <InstagramCTA />
         </div>
 
@@ -163,7 +158,7 @@ export default function App() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.8, duration: 0.6 }}
-          className="mt-16 text-center text-bao-gray-dark text-sm"
+          className="mt-4 text-center text-bao-gray-dark text-xs"
         >
           <p>Follow our journey • Opening Winter 2024</p>
         </motion.div>
