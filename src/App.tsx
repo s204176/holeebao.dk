@@ -9,6 +9,7 @@ import TiltWrapper from './components/TiltWrapper';
 import AnimatedSteam from './components/AnimatedSteam';
 import InstagramCTA from './components/InstagramCTA';
 import LoadingScreen from './components/LoadingScreen';
+import AnimatedGridBackground from './components/AnimatedGridBackground';
 
 export default function App() {
   const [imageError, setImageError] = useState(false);
@@ -33,6 +34,9 @@ export default function App() {
         <LoadingScreen key="loading" />
       ) : (
     <div key="main" className="relative min-h-screen overflow-hidden">
+      {/* Animated Grid Background (shadcn-inspired) */}
+      <AnimatedGridBackground />
+
       {/* Layered Animated Steam Background */}
       <AnimatedSteam />
 
