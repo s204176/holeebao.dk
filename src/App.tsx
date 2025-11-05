@@ -1,3 +1,4 @@
+import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import SteamEffect from './components/SteamEffect';
 import EmailSignup from './components/EmailSignup';
@@ -5,6 +6,11 @@ import FloatingBaos from './components/FloatingBaos';
 import SocialLinks from './components/SocialLinks';
 
 export default function App() {
+  const [imageError, setImageError] = useState(false);
+
+  const handleImageError = useCallback(() => {
+    setImageError(true);
+  }, []);
   return (
     <div className="relative min-h-screen overflow-hidden">
       {/* Floating Background Shapes */}
@@ -31,28 +37,23 @@ export default function App() {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="relative z-10"
             >
-              <img
-                src="/assets/steamer_holeebao_v1.png"
-                alt="Holee Bao Logo"
-                className="w-full h-full object-contain drop-shadow-2xl"
-                onError={(e) => {
-                  // Fallback if image not found
-                  e.currentTarget.style.display = 'none';
-                  const parent = e.currentTarget.parentElement;
-                  if (parent) {
-                    parent.innerHTML = `
-                      <div class="w-64 h-64 flex items-center justify-center">
-                        <div class="text-center">
-                          <div class="text-6xl sm:text-7xl font-display font-bold text-bao-golden mb-2">
-                            HOLEE BAO
-                          </div>
-                          <div class="text-xl text-bao-gray-dark">蒸包</div>
-                        </div>
-                      </div>
-                    `;
-                  }
-                }}
-              />
+              {!imageError ? (
+                <img
+                  src="/assets/steamer_holeebao_v1.png"
+                  alt="Holee Bao Logo"
+                  className="w-full h-full object-contain drop-shadow-2xl"
+                  onError={handleImageError}
+                />
+              ) : (
+                <div className="w-64 h-64 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-6xl sm:text-7xl font-display font-bold text-bao-golden mb-2">
+                      HOLEE BAO
+                    </div>
+                    <div className="text-xl text-bao-gray-dark">蒸包</div>
+                  </div>
+                </div>
+              )}
             </motion.div>
           </div>
         </motion.div>

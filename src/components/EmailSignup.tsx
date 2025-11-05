@@ -1,10 +1,20 @@
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 export default function EmailSignup() {
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   const validateEmail = (email: string): boolean => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -26,12 +36,17 @@ export default function EmailSignup() {
     }
 
     // TODO: Add actual email signup logic here
-    console.log('Email submitted:', email);
+    // Email submission would go here (backend integration needed)
     setIsSubmitted(true);
     setEmail('');
 
-    // Reset after 3 seconds
-    setTimeout(() => {
+    // Clear any existing timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    // Reset after 3 seconds with proper cleanup
+    timeoutRef.current = setTimeout(() => {
       setIsSubmitted(false);
     }, 3000);
   };
