@@ -1,21 +1,29 @@
-:root {
-  color-scheme: light dark;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    @apply h-full m-0;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background: linear-gradient(135deg, #FAFAFA 0%, #F5F1E8 100%);
+  }
 }
 
-html, body, #root {
-  height: 100%;
-  margin: 0;
-}
+@layer components {
+  .steam-particle {
+    position: absolute;
+    background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(232,234,246,0.3) 50%, transparent 100%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
 
-body {
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-}
-
-button {
-  padding: 0.6rem 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid #3b82f6;
-  background: transparent;
-  color: inherit;
-  cursor: pointer;
+  .bao-shape {
+    position: absolute;
+    opacity: 0.05;
+    pointer-events: none;
+  }
 }
