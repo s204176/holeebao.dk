@@ -6,7 +6,7 @@ export default function LoadingScreen() {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-bao-cream via-bao-white to-bao-cream"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-bao-golden"
     >
       {/* Animated Logo Container */}
       <div className="relative">
@@ -54,7 +54,7 @@ export default function LoadingScreen() {
               repeat: Infinity,
               ease: 'easeInOut',
             }}
-            className="text-7xl sm:text-8xl font-display font-bold text-bao-golden mb-4"
+            className="text-7xl sm:text-8xl font-display font-bold text-white mb-4"
           >
             HOLEE BAO
           </motion.div>
@@ -63,7 +63,7 @@ export default function LoadingScreen() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-3xl text-bao-gray-dark mb-8"
+            className="text-3xl text-white/80 mb-8"
           >
             蒸包
           </motion.div>
@@ -85,7 +85,7 @@ export default function LoadingScreen() {
               ease: 'easeInOut',
               delay: i * 0.2,
             }}
-            className="w-3 h-3 rounded-full bg-bao-golden"
+            className="w-3 h-3 rounded-full bg-white"
           />
         ))}
       </div>
@@ -95,7 +95,7 @@ export default function LoadingScreen() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="mt-6 text-bao-gray-dark text-lg font-light tracking-wide"
+        className="mt-6 text-white/90 text-lg font-light tracking-wide"
       >
         Preparing something delicious...
       </motion.p>

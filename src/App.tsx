@@ -4,10 +4,9 @@ import SteamEffect from './components/SteamEffect';
 import FloatingBaos from './components/FloatingBaos';
 import Typewriter from './components/Typewriter';
 import TiltWrapper from './components/TiltWrapper';
-import AnimatedSteam from './components/AnimatedSteam';
 import InstagramCTA from './components/InstagramCTA';
 import LoadingScreen from './components/LoadingScreen';
-import AnimatedGridBackground from './components/AnimatedGridBackground';
+import PlasmaBackground from './components/PlasmaBackground';
 
 export default function App() {
   const [imageError, setImageError] = useState(false);
@@ -32,11 +31,8 @@ export default function App() {
         <LoadingScreen key="loading" />
       ) : (
     <div key="main" className="relative h-screen overflow-hidden">
-      {/* Animated Grid Background (shadcn-inspired) */}
-      <AnimatedGridBackground />
-
-      {/* Layered Animated Steam Background */}
-      <AnimatedSteam />
+      {/* Plasma Background - Golden yellow with animated plasma effect */}
+      <PlasmaBackground />
 
       {/* Floating Background Shapes */}
       <FloatingBaos />
