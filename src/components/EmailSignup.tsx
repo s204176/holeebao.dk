@@ -1,5 +1,6 @@
 import { useState, FormEvent, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import confetti from 'canvas-confetti';
 
 export default function EmailSignup() {
   const [email, setEmail] = useState('');
@@ -37,6 +38,15 @@ export default function EmailSignup() {
 
     // TODO: Add actual email signup logic here
     // Email submission would go here (backend integration needed)
+
+    // Confetti explosion! 🎉
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ['#E8B84D', '#F5CF6B', '#D4A03A', '#FAFAFA']
+    });
+
     setIsSubmitted(true);
     setEmail('');
 

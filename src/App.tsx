@@ -4,6 +4,9 @@ import SteamEffect from './components/SteamEffect';
 import EmailSignup from './components/EmailSignup';
 import FloatingBaos from './components/FloatingBaos';
 import SocialLinks from './components/SocialLinks';
+import Typewriter from './components/Typewriter';
+import VisitorCounter from './components/VisitorCounter';
+import TiltWrapper from './components/TiltWrapper';
 
 export default function App() {
   const [imageError, setImageError] = useState(false);
@@ -37,23 +40,25 @@ export default function App() {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="relative z-10"
             >
-              {!imageError ? (
-                <img
-                  src="/assets/steamer_holeebao_v1.png"
-                  alt="Holee Bao Logo"
-                  className="w-full h-full object-contain drop-shadow-2xl"
-                  onError={handleImageError}
-                />
-              ) : (
-                <div className="w-64 h-64 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-6xl sm:text-7xl font-display font-bold text-bao-golden mb-2">
-                      HOLEE BAO
+              <TiltWrapper>
+                {!imageError ? (
+                  <img
+                    src="/assets/steamer_holeebao_v1.png"
+                    alt="Holee Bao Logo"
+                    className="w-full h-full object-contain drop-shadow-2xl"
+                    onError={handleImageError}
+                  />
+                ) : (
+                  <div className="w-64 h-64 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-6xl sm:text-7xl font-display font-bold text-bao-golden mb-2">
+                        HOLEE BAO
+                      </div>
+                      <div className="text-xl text-bao-gray-dark">蒸包</div>
                     </div>
-                    <div className="text-xl text-bao-gray-dark">蒸包</div>
                   </div>
-                </div>
-              )}
+                )}
+              </TiltWrapper>
             </motion.div>
           </div>
         </motion.div>
@@ -67,7 +72,9 @@ export default function App() {
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-gray-800 mb-4">
             Something Delicious <br className="sm:hidden" />
-            <span className="text-bao-golden">is Steaming...</span>
+            <span className="text-bao-golden">
+              <Typewriter text="is Steaming..." delay={1000} speed={100} />
+            </span>
           </h1>
 
           {/* Typewriter effect for subtitle */}
@@ -106,6 +113,9 @@ export default function App() {
             📍 Åboulevard area, Copenhagen
           </p>
         </motion.div>
+
+        {/* Visitor Counter */}
+        <VisitorCounter targetCount={1247} />
 
         {/* Email Signup Form */}
         <div className="w-full max-w-2xl mb-8">
