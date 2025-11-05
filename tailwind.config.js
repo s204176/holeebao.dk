@@ -12,8 +12,9 @@ export default {
           cream: '#F5F1E8',
           gray: '#E5E5E5',
           'gray-dark': '#9E9E9E',
-          red: '#D32F2F',
-          'red-light': '#EF5350',
+          golden: '#E8B84D',
+          'golden-light': '#F5CF6B',
+          'golden-dark': '#D4A03A',
           'steam': '#E8EAF6',
         }
       },

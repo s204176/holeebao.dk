@@ -43,7 +43,7 @@ export default function App() {
                     parent.innerHTML = `
                       <div class="w-64 h-64 flex items-center justify-center">
                         <div class="text-center">
-                          <div class="text-6xl sm:text-7xl font-display font-bold text-bao-red mb-2">
+                          <div class="text-6xl sm:text-7xl font-display font-bold text-bao-golden mb-2">
                             HOLEE BAO
                           </div>
                           <div class="text-xl text-bao-gray-dark">蒸包</div>
@@ -66,7 +66,7 @@ export default function App() {
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-gray-800 mb-4">
             Something Delicious <br className="sm:hidden" />
-            <span className="text-bao-red">is Steaming...</span>
+            <span className="text-bao-golden">is Steaming...</span>
           </h1>
 
           {/* Typewriter effect for subtitle */}
@@ -87,8 +87,8 @@ export default function App() {
           transition={{ delay: 1.0, duration: 0.5, type: 'spring' }}
           className="mb-8"
         >
-          <div className="px-8 py-3 rounded-full bg-bao-red/10 border-2 border-bao-red/30 backdrop-blur-sm">
-            <span className="text-bao-red font-semibold text-lg tracking-wider">
+          <div className="px-8 py-3 rounded-full bg-bao-golden/10 border-2 border-bao-golden/30 backdrop-blur-sm">
+            <span className="text-bao-golden font-semibold text-lg tracking-wider">
               COMING SOON
             </span>
           </div>

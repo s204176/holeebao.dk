@@ -29,7 +29,7 @@ export default function FloatingBaos() {
             height: `${bao.size}px`,
             left: bao.left,
             top: bao.top,
-            background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), rgba(211,47,47,0.1))',
+            background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), rgba(232,184,77,0.1))',
           }}
           animate={{
             y: [0, -30, 0],

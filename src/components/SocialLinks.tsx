@@ -41,7 +41,7 @@ export default function SocialLinks() {
           whileHover={{ scale: 1.2, rotate: 5 }}
           whileTap={{ scale: 0.9 }}
           className="w-12 h-12 rounded-full bg-white/50 backdrop-blur-sm flex items-center justify-center
-                   text-bao-gray-dark hover:text-bao-red hover:bg-white/80 transition-all duration-300
+                   text-bao-gray-dark hover:text-bao-golden hover:bg-white/80 transition-all duration-300
                    shadow-md hover:shadow-lg"
           aria-label={social.name}
         >

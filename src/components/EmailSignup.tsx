@@ -52,7 +52,7 @@ export default function EmailSignup() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               className="w-full px-6 py-4 rounded-full bg-white/80 backdrop-blur-sm border-2 border-bao-gray
-                       focus:border-bao-red focus:outline-none transition-all duration-300
+                       focus:border-bao-golden focus:outline-none transition-all duration-300
                        text-gray-800 placeholder-bao-gray-dark text-center sm:text-left"
               aria-label="Email address"
             />
@@ -60,7 +60,7 @@ export default function EmailSignup() {
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="text-bao-red text-sm mt-2 text-center sm:text-left px-2"
+                className="text-bao-golden-dark text-sm mt-2 text-center sm:text-left px-2"
               >
                 {error}
               </motion.p>
@@ -70,7 +70,7 @@ export default function EmailSignup() {
             type="submit"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 rounded-full bg-bao-red hover:bg-bao-red-light text-white font-semibold
+            className="px-8 py-4 rounded-full bg-bao-golden hover:bg-bao-golden-light text-white font-semibold
                      transition-all duration-300 shadow-lg hover:shadow-xl transform"
           >
             Notify Me
