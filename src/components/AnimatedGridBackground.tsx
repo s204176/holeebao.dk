@@ -18,12 +18,10 @@ export default function AnimatedGridBackground() {
     setCanvasSize();
     window.addEventListener('resize', setCanvasSize);
 
-    // Configuration
-    const dotSpacing = 40;
+    // Configuration - OPTIMIZED for performance
+    const dotSpacing = 80; // Doubled spacing = 4x fewer dots
     const dotRadius = 1.5;
-    const maxConnectionDistance = 150;
-    const goldenColor = '#E8B84D';
-    const goldenLight = '#F5CF6B';
+    const maxConnectionDistance = 120; // Reduced
 
     // Mouse position
     let mouseX = -1000;
@@ -51,75 +49,58 @@ export default function AnimatedGridBackground() {
     };
     window.addEventListener('mousemove', handleMouseMove);
 
-    // Animation loop
+    // Animation loop - HEAVILY OPTIMIZED
     let animationId: number;
+    let frameCount = 0;
+
     const animate = () => {
+      frameCount++;
+
+      // Only clear and redraw every other frame (30fps instead of 60fps)
+      if (frameCount % 2 !== 0) {
+        animationId = requestAnimationFrame(animate);
+        return;
+      }
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Update and draw dots
+      // Update and draw dots - simplified
       dots.forEach((dot) => {
-        // Subtle floating animation
-        dot.x += dot.vx;
-        dot.y += dot.vy;
+        // Subtle floating only
+        dot.x += dot.vx * 0.3;
+        dot.y += dot.vy * 0.3;
 
-        // Bounce back to base position
-        const dx = dot.baseX - dot.x;
-        const dy = dot.baseY - dot.y;
-        dot.x += dx * 0.05;
-        dot.y += dy * 0.05;
+        // Bounce back to base
+        dot.x += (dot.baseX - dot.x) * 0.05;
+        dot.y += (dot.baseY - dot.y) * 0.05;
 
-        // Mouse interaction - repel dots
-        const mdx = mouseX - dot.x;
-        const mdy = mouseY - dot.y;
-        const mouseDistance = Math.sqrt(mdx * mdx + mdy * mdy);
-
-        if (mouseDistance < 100) {
-          const force = (100 - mouseDistance) / 100;
-          dot.x -= (mdx / mouseDistance) * force * 3;
-          dot.y -= (mdy / mouseDistance) * force * 3;
-        }
-
-        // Draw dot
-        const distanceToMouse = Math.sqrt(
-          (mouseX - dot.x) ** 2 + (mouseY - dot.y) ** 2
-        );
-        const opacity = distanceToMouse < 150 ? 0.6 : 0.15;
-
+        // Draw dot with static opacity
         ctx.beginPath();
         ctx.arc(dot.x, dot.y, dotRadius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(232, 184, 77, ${opacity})`;
+        ctx.fillStyle = 'rgba(232, 184, 77, 0.2)';
         ctx.fill();
       });
 
-      // Draw connections
+      // Draw connections - MUCH simpler, no gradients
+      const goldenStroke = 'rgba(232, 184, 77, 0.1)';
       dots.forEach((dot, i) => {
-        dots.slice(i + 1).forEach((otherDot) => {
+        // Only check next 3 dots to limit calculations
+        for (let j = i + 1; j < Math.min(i + 4, dots.length); j++) {
+          const otherDot = dots[j];
           const dx = dot.x - otherDot.x;
           const dy = dot.y - otherDot.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
+          const distSq = dx * dx + dy * dy; // Skip sqrt for performance
+          const maxDistSq = maxConnectionDistance * maxConnectionDistance;
 
-          if (distance < maxConnectionDistance) {
-            const opacity = (1 - distance / maxConnectionDistance) * 0.15;
-
-            // Golden gradient for connections
-            const gradient = ctx.createLinearGradient(
-              dot.x,
-              dot.y,
-              otherDot.x,
-              otherDot.y
-            );
-            gradient.addColorStop(0, `rgba(232, 184, 77, ${opacity})`);
-            gradient.addColorStop(0.5, `rgba(245, 207, 107, ${opacity})`);
-            gradient.addColorStop(1, `rgba(232, 184, 77, ${opacity})`);
-
+          if (distSq < maxDistSq) {
             ctx.beginPath();
             ctx.moveTo(dot.x, dot.y);
             ctx.lineTo(otherDot.x, otherDot.y);
-            ctx.strokeStyle = gradient;
+            ctx.strokeStyle = goldenStroke;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
-        });
+        }
       });
 
       animationId = requestAnimationFrame(animate);

@@ -54,10 +54,13 @@ export default function App() {
           className="relative mb-8"
         >
           {/* Logo Container with Steam Effect */}
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 flex items-center justify-center">
+          <div className="relative w-48 h-48 sm:w-56 sm:h-56 flex items-center justify-center">
             <SteamEffect />
 
-            {/* Logo - Replace with actual image when available */}
+            {/* Golden glow background for logo visibility */}
+            <div className="absolute inset-0 bg-gradient-radial from-bao-golden/30 via-bao-golden/10 to-transparent rounded-full blur-2xl" />
+
+            {/* Logo */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -70,6 +73,9 @@ export default function App() {
                     src="/assets/steamer_holeebao_v1.png"
                     alt="Holee Bao Logo"
                     className="w-full h-full object-contain drop-shadow-2xl"
+                    style={{
+                      filter: 'drop-shadow(0 0 20px rgba(232, 184, 77, 0.6)) drop-shadow(0 0 40px rgba(232, 184, 77, 0.3))',
+                    }}
                     onError={handleImageError}
                   />
                 ) : (
