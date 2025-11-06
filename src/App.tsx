@@ -5,6 +5,7 @@ import FloatingBaos from './components/FloatingBaos';
 import Typewriter from './components/Typewriter';
 import TiltWrapper from './components/TiltWrapper';
 import LoadingScreen from './components/LoadingScreen';
+import Threads from './components/Threads';
 
 export default function App() {
   const [imageError, setImageError] = useState(false);
@@ -29,6 +30,16 @@ export default function App() {
         <LoadingScreen key="loading" />
       ) : (
     <div key="main" className="relative h-screen overflow-hidden bg-bao-golden">
+      {/* Threads Effect */}
+      <div className="absolute inset-0 z-0">
+        <Threads
+          color={[1, 1, 1]}
+          amplitude={1}
+          distance={0}
+          enableMouseInteraction={true}
+        />
+      </div>
+
       {/* Floating Background Shapes */}
       <FloatingBaos />
 

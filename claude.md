@@ -3,8 +3,9 @@
 ## Current Session: 2025-11-06
 
 ### Latest Changes
+- **Threads WebGL Effect**: Added animated wavy threads overlay using OGL library - white threads that flow across the screen with mouse interaction
 - **Typewriter Golden Glow**: Changed "is Steaming..." to white text with golden glow effect (visible on golden background while keeping the steaming aesthetic)
-- **Removed Plasma Background**: Simplified to clean solid golden yellow background (#E8B84D), removed WebGL plasma effect
+- **Golden Yellow Background**: Solid golden yellow background (#E8B84D) with Threads effect overlay
 - **White Text**: Changed "Something Delicious" and subtitle to white for better visibility on golden background
 - **Kept Steam Effect**: Logo steam particles still active (white steam rising from logo)
 - **Fixed Steam Cutoff**: Removed overflow-hidden constraint, extended steam animation distance to -250px (from -150px), increased scale to 2x for smoother fluid effect
@@ -18,9 +19,11 @@
 - Vite
 - Tailwind CSS v3
 - Framer Motion
+- OGL (WebGL library for Threads effect)
 - canvas-confetti
 
 ### Current Components
+- `Threads.tsx` - WebGL animated wavy threads effect with Perlin noise and mouse interaction
 - `LoadingScreen.tsx` - Golden yellow loading screen with HOLEE BAO logo
 - `FloatingBaos.tsx` - Clickable floating baos with confetti easter egg
 - `SteamEffect.tsx` - White steam particles rising from logo
@@ -28,6 +31,7 @@
 - `Typewriter.tsx` - Typewriter effect for tagline
 
 ### Key Features
+- **Threads WebGL Effect**: Animated wavy white threads overlay with mouse interaction using Perlin noise
 - Clean solid golden yellow background (#E8B84D)
 - White steam particles rising from logo
 - 3D tilt logo effect
