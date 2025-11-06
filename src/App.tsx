@@ -118,25 +118,47 @@ export default function App() {
             scale: 1,
           }}
           transition={{ delay: 1.0, duration: 0.5, type: 'spring' }}
-          className="mb-8"
+          className="mb-8 relative"
         >
+          {/* Animated gradient border wrapper */}
+          <motion.div
+            animate={{
+              rotate: [0, 360],
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+            className="absolute inset-0 rounded-full bg-gradient-to-r from-bao-golden via-white to-bao-golden blur-sm"
+            style={{ padding: '4px' }}
+          />
+
           <motion.div
             animate={{
               boxShadow: [
-                '0 0 20px rgba(0,0,0,0.1)',
-                '0 0 30px rgba(0,0,0,0.15)',
-                '0 0 20px rgba(0,0,0,0.1)'
-              ]
+                '0 0 30px rgba(232, 184, 77, 0.3), 0 0 60px rgba(232, 184, 77, 0.1)',
+                '0 0 50px rgba(232, 184, 77, 0.5), 0 0 80px rgba(232, 184, 77, 0.2)',
+                '0 0 30px rgba(232, 184, 77, 0.3), 0 0 60px rgba(232, 184, 77, 0.1)'
+              ],
+              y: [0, -5, 0]
             }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="px-10 py-4 rounded-full bg-white border-4 border-gray-900 shadow-2xl"
+            className="relative px-12 py-4 rounded-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900"
           >
             <motion.span
               animate={{
-                opacity: [1, 0.9, 1]
+                textShadow: [
+                  '0 0 10px rgba(232, 184, 77, 0.5)',
+                  '0 0 20px rgba(232, 184, 77, 0.8)',
+                  '0 0 10px rgba(232, 184, 77, 0.5)'
+                ]
               }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-              className="text-gray-900 font-black text-xl sm:text-2xl tracking-widest"
+              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+              className="text-bao-golden font-black text-2xl sm:text-3xl tracking-widest"
+              style={{
+                background: 'linear-gradient(45deg, #F5CF6B, #E8B84D, #D4A03A, #F5CF6B)',
+                backgroundSize: '300% 300%',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
             >
               COMING SOON
             </motion.span>

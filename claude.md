@@ -3,7 +3,7 @@
 ## Current Session: 2025-11-06
 
 ### Latest Changes
-- **Pretty COMING SOON Badge**: Larger size, thicker border, animated pulsing shadow and text, font-black, wider tracking - much more eye-catching!
+- **Epic COMING SOON Badge**: Dark gradient bg, rotating golden border, glowing text, floating animation, gradient text effect - MUCH cooler!
 - **Text Contrast Fix**: "is Steaming..." typewriter remains golden (text-bao-golden), only subtitle and badge changed to dark
 - **White Plasma Steam Effect**: Changed plasma to white color (#ffffff) over solid golden yellow background (#E8B84D) - looks like steam!
 - **Real WebGL Plasma Background**: Implemented actual WebGL plasma effect using OGL library
