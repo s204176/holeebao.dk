@@ -4,12 +4,14 @@
 
 ### Latest Changes (Scroll Experiment Branch)
 - **NEW EXPERIMENTAL BRANCH**: `claude/scroll-experiment-011CUpog5k5x8axH97NZAj8B` - can easily revert back to main branch
-- **Vertical Scroll Enabled**: Changed from one-pager to scrollable two-section design
+- **Progressive Reveal Structure**: Three-section scrollable design with minimal first view
+  - Section 1: Logo + tagline ONLY (minimal landing)
+  - Section 2: COMING SOON badge + Instagram button (scroll to reveal)
+  - Section 3: "Estimated Opening Early 2026" + larger Instagram CTA (scroll more to reveal)
 - **Scroll Indicator**: Bouncing arrow with "Scroll to see what's steaming" text
 - **Gradual Blur Effect**: First section (hero) gradually blurs as you scroll down
-- **Second Section Reveal**: Scroll down ~100vh to reveal "Opening February 2026" message
-- **Larger Instagram CTA**: Second section has bigger, more prominent Instagram button
 - **Fixed Threads Background**: Threads effect stays fixed while content scrolls
+- **Opening Date**: Changed from "February 2026" to "Estimated Opening Early 2026"
 - **Threads Settings Optimized**: Set amplitude=0.6, distance=1 for subtler, more spread-out wavy threads effect
 - **Threads WebGL Effect**: Added animated wavy threads overlay using OGL library - white threads that flow across the screen with mouse interaction
 - **Typewriter Golden Glow**: Changed "is Steaming..." to white text with golden glow effect (visible on golden background while keeping the steaming aesthetic)
@@ -41,10 +43,12 @@
 - `Typewriter.tsx` - Typewriter effect for tagline
 
 ### Key Features
-- **Vertical Scroll**: Two-section scrollable design (experimental - easy to revert)
+- **Progressive Reveal Scroll**: Three-section design with minimal first view (experimental - easy to revert)
+  - Land with minimal content (logo + tagline)
+  - Scroll to reveal COMING SOON + Instagram
+  - Scroll more to reveal "Estimated Opening Early 2026"
 - **Gradual Blur Effect**: Hero section blurs as you scroll down
 - **Scroll Indicator**: Bouncing arrow prompts users to scroll
-- **Second Section**: "Opening February 2026" reveal with larger Instagram CTA
 - **Fixed Threads Background**: WebGL threads stay in place while content scrolls
 - **Threads WebGL Effect**: Animated wavy white threads overlay with mouse interaction using Perlin noise
 - Clean solid golden yellow background (#E8B84D)
