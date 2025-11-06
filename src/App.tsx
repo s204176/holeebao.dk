@@ -81,7 +81,7 @@ export default function App() {
       <motion.div
         className="absolute left-1/2 -translate-x-1/2 w-48 h-48 pointer-events-none z-20"
         style={{
-          top: 'calc(100vh - 6rem)',
+          top: 'calc(100vh - 3rem)',
           opacity: landingSteamOpacity
         }}
       >
