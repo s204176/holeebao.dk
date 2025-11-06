@@ -16,8 +16,8 @@ export default function App() {
 
   // Track scroll position for steam fade effects
   const { scrollY } = useScroll();
-  const landingSteamOpacity = useTransform(scrollY, [0, 400], [1, 0]);
-  const logoSteamOpacity = useTransform(scrollY, [300, 700], [0, 1]);
+  const landingSteamOpacity = useTransform(scrollY, [0, 600], [1, 0]);
+  const logoSteamOpacity = useTransform(scrollY, [400, 1000], [0, 1]);
 
   const handleImageError = useCallback(() => {
     setImageError(true);
@@ -68,16 +68,19 @@ export default function App() {
 
           {/* Scroll Indicator */}
           <ScrollIndicator />
-
-          {/* Landing Page Steam - Fades out on scroll */}
-          <motion.div
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-48 pointer-events-none"
-            style={{ opacity: landingSteamOpacity }}
-          >
-            <SteamEffect />
-          </motion.div>
         </div>
       </GradualBlur>
+
+      {/* Landing Page Steam - Positioned at bottom, fades out on scroll */}
+      <motion.div
+        className="absolute left-1/2 -translate-x-1/2 w-48 h-48 pointer-events-none z-20"
+        style={{
+          top: 'calc(100vh - 10rem)',
+          opacity: landingSteamOpacity
+        }}
+      >
+        <SteamEffect />
+      </motion.div>
 
       {/* Second Section - ALL CONTENT AT ONCE with ScrollFloat */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-16 bg-bao-golden">
