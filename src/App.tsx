@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import SteamEffect from './components/SteamEffect';
 import FloatingBaos from './components/FloatingBaos';
 import Typewriter from './components/Typewriter';
@@ -13,6 +13,11 @@ import ScrollFloat from './components/ScrollFloat';
 export default function App() {
   const [imageError, setImageError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Track scroll position for steam fade effects
+  const { scrollY } = useScroll();
+  const landingSteamOpacity = useTransform(scrollY, [0, 400], [1, 0]);
+  const logoSteamOpacity = useTransform(scrollY, [300, 700], [0, 1]);
 
   const handleImageError = useCallback(() => {
     setImageError(true);
@@ -63,6 +68,14 @@ export default function App() {
 
           {/* Scroll Indicator */}
           <ScrollIndicator />
+
+          {/* Landing Page Steam - Fades out on scroll */}
+          <motion.div
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-48 pointer-events-none"
+            style={{ opacity: landingSteamOpacity }}
+          >
+            <SteamEffect />
+          </motion.div>
         </div>
       </GradualBlur>
 
@@ -81,7 +94,13 @@ export default function App() {
             >
               {/* Logo Container with Steam Effect */}
               <div className="relative w-40 h-40 sm:w-48 sm:h-48 flex items-center justify-center mx-auto">
-                <SteamEffect />
+                {/* Logo Steam - Fades in on scroll */}
+                <motion.div
+                  className="absolute inset-0"
+                  style={{ opacity: logoSteamOpacity }}
+                >
+                  <SteamEffect />
+                </motion.div>
 
                 {/* Golden glow background for logo visibility */}
                 <div className="absolute inset-0 bg-gradient-radial from-bao-golden/30 via-bao-golden/10 to-transparent rounded-full blur-2xl" />
