@@ -2,7 +2,14 @@
 
 ## Current Session: 2025-11-06
 
-### Latest Changes
+### Latest Changes (Scroll Experiment Branch)
+- **NEW EXPERIMENTAL BRANCH**: `claude/scroll-experiment-011CUpog5k5x8axH97NZAj8B` - can easily revert back to main branch
+- **Vertical Scroll Enabled**: Changed from one-pager to scrollable two-section design
+- **Scroll Indicator**: Bouncing arrow with "Scroll to see what's steaming" text
+- **Gradual Blur Effect**: First section (hero) gradually blurs as you scroll down
+- **Second Section Reveal**: Scroll down ~100vh to reveal "Opening February 2026" message
+- **Larger Instagram CTA**: Second section has bigger, more prominent Instagram button
+- **Fixed Threads Background**: Threads effect stays fixed while content scrolls
 - **Threads Settings Optimized**: Set amplitude=0.6, distance=1 for subtler, more spread-out wavy threads effect
 - **Threads WebGL Effect**: Added animated wavy threads overlay using OGL library - white threads that flow across the screen with mouse interaction
 - **Typewriter Golden Glow**: Changed "is Steaming..." to white text with golden glow effect (visible on golden background while keeping the steaming aesthetic)
@@ -25,6 +32,8 @@
 
 ### Current Components
 - `Threads.tsx` - WebGL animated wavy threads effect with Perlin noise and mouse interaction
+- `ScrollIndicator.tsx` - Bouncing arrow scroll indicator with text
+- `GradualBlur.tsx` - Scroll-triggered blur effect component
 - `LoadingScreen.tsx` - Golden yellow loading screen with HOLEE BAO logo
 - `FloatingBaos.tsx` - Clickable floating baos with confetti easter egg
 - `SteamEffect.tsx` - White steam particles rising from logo
@@ -32,6 +41,11 @@
 - `Typewriter.tsx` - Typewriter effect for tagline
 
 ### Key Features
+- **Vertical Scroll**: Two-section scrollable design (experimental - easy to revert)
+- **Gradual Blur Effect**: Hero section blurs as you scroll down
+- **Scroll Indicator**: Bouncing arrow prompts users to scroll
+- **Second Section**: "Opening February 2026" reveal with larger Instagram CTA
+- **Fixed Threads Background**: WebGL threads stay in place while content scrolls
 - **Threads WebGL Effect**: Animated wavy white threads overlay with mouse interaction using Perlin noise
 - Clean solid golden yellow background (#E8B84D)
 - White steam particles rising from logo
@@ -39,12 +53,13 @@
 - Typewriter animation "is Steaming..." with golden glow effect (white text with golden shadow)
 - White text for main heading and subtitle
 - Clickable floating baos (confetti easter egg)
-- Simple Instagram button with gradient
-- One-page design (no scrolling)
 - Loading screen (2.5s)
 
-### Branch
-`claude/holee-bao-landing-page-011CUpog5k5x8axH97NZAj8B`
+### Branches
+- **Main Branch** (no scroll): `claude/holee-bao-landing-page-011CUpog5k5x8axH97NZAj8B`
+- **Scroll Experiment Branch** (current): `claude/scroll-experiment-011CUpog5k5x8axH97NZAj8B`
+
+To revert to no-scroll version: `git checkout claude/holee-bao-landing-page-011CUpog5k5x8axH97NZAj8B`
 
 ### Instagram
 https://www.instagram.com/holeebao.cph/
