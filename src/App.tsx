@@ -5,7 +5,6 @@ import FloatingBaos from './components/FloatingBaos';
 import Typewriter from './components/Typewriter';
 import TiltWrapper from './components/TiltWrapper';
 import LoadingScreen from './components/LoadingScreen';
-import PlasmaBackground from './components/PlasmaBackground';
 
 export default function App() {
   const [imageError, setImageError] = useState(false);
@@ -29,10 +28,7 @@ export default function App() {
       {isLoading ? (
         <LoadingScreen key="loading" />
       ) : (
-    <div key="main" className="relative h-screen overflow-hidden">
-      {/* Plasma Background - Golden yellow with animated plasma effect */}
-      <PlasmaBackground />
-
+    <div key="main" className="relative h-screen overflow-hidden bg-bao-golden">
       {/* Floating Background Shapes */}
       <FloatingBaos />
 
@@ -93,7 +89,7 @@ export default function App() {
           transition={{ delay: 0.6, duration: 0.6 }}
           className="text-center mb-8"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-4">
             Something Delicious <br className="sm:hidden" />
             <span className="text-bao-golden">
               <Typewriter text="is Steaming..." delay={1000} speed={100} />
@@ -104,7 +100,7 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9, duration: 0.6 }}
-            className="text-lg sm:text-xl text-gray-900 font-medium"
+            className="text-lg sm:text-xl text-white font-medium"
           >
             Fresh steamed baos arriving soon to Copenhagen
           </motion.p>

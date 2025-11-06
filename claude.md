@@ -3,12 +3,13 @@
 ## Current Session: 2025-11-06
 
 ### Latest Changes
+- **Removed Plasma Background**: Simplified to clean solid golden yellow background (#E8B84D), removed WebGL plasma effect
+- **White Text**: Changed "Something Delicious" and subtitle to white for better visibility on golden background
+- **Kept Steam Effect**: Logo steam particles still active (white steam rising from logo)
 - **Fixed Steam Cutoff**: Removed overflow-hidden constraint, extended steam animation distance to -250px (from -150px), increased scale to 2x for smoother fluid effect
 - **Removed Rotating Border Artifact**: Replaced rotating gradient border with static golden border (border-4 border-bao-golden) on COMING SOON badge
 - **Epic COMING SOON Badge**: Dark gradient bg, pulsing glow, glowing gradient text, floating animation - clean and eye-catching!
-- **Text Contrast Fix**: "is Steaming..." typewriter remains golden (text-bao-golden), only subtitle and badge changed to dark
-- **White Plasma Steam Effect**: Changed plasma to white color (#ffffff) over solid golden yellow background (#E8B84D) - looks like steam!
-- **Real WebGL Plasma Background**: Implemented actual WebGL plasma effect using OGL library
+- **Text Contrast**: "is Steaming..." typewriter remains golden (text-bao-golden)
 - **Simplified IG Button**: Replaced big Instagram card with simple gradient button
 - **Minimal Design**: Removed all extras (countdown, location, facts, visitor counter) - kept only logo, name, coming soon, IG button
 
@@ -17,30 +18,25 @@
 - Vite
 - Tailwind CSS v3
 - Framer Motion
-- OGL (WebGL library for plasma effect)
 - canvas-confetti
 
 ### Current Components
-- `Plasma.tsx` - WebGL plasma shader effect
-- `PlasmaBackground.tsx` - White plasma steam effect over solid golden yellow background
 - `LoadingScreen.tsx` - Golden yellow loading screen with HOLEE BAO logo
 - `FloatingBaos.tsx` - Clickable floating baos with confetti easter egg
-- `SteamEffect.tsx` - Steam animation around logo
+- `SteamEffect.tsx` - White steam particles rising from logo
 - `TiltWrapper.tsx` - 3D tilt effect for logo
 - `Typewriter.tsx` - Typewriter effect for tagline
 
 ### Key Features
-- White plasma steam effect over golden yellow background (#E8B84D)
-- WebGL-based plasma using OGL library
+- Clean solid golden yellow background (#E8B84D)
+- White steam particles rising from logo
 - 3D tilt logo effect
-- Typewriter animation on tagline
+- Typewriter animation on tagline (golden text)
+- White text for main heading and subtitle
 - Clickable floating baos (confetti easter egg)
 - Simple Instagram button with gradient
 - One-page design (no scrolling)
 - Loading screen (2.5s)
-
-### Installation Required (User Side)
-⚠️ User needs to run `npm install` to install the `ogl` package for plasma effect
 
 ### Branch
 `claude/holee-bao-landing-page-011CUpog5k5x8axH97NZAj8B`
