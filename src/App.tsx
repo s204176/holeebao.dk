@@ -43,28 +43,44 @@ export default function App() {
     if (!logoRef.current || isLoading) return;
 
     const logo = logoRef.current;
+    const logoImg = logo.querySelector('img');
 
-    // Combined blur, opacity, and rotation animation
+    if (!logoImg) return;
+
+    // Combined blur and drop-shadow animation on the image itself
     gsap.fromTo(
-      logo,
+      logoImg,
       {
-        transformOrigin: '50% 50%',
-        rotate: 4,
+        filter: 'blur(10px) drop-shadow(0 0 20px rgba(232, 184, 77, 0.6)) drop-shadow(0 0 40px rgba(232, 184, 77, 0.3))',
         opacity: 0,
-        filter: 'blur(10px)',
-        willChange: 'filter, opacity, transform'
+        willChange: 'filter, opacity'
       },
       {
         ease: 'none',
-        rotate: 0,
         opacity: 1,
-        filter: 'blur(0px)',
+        filter: 'blur(0px) drop-shadow(0 0 20px rgba(232, 184, 77, 0.6)) drop-shadow(0 0 40px rgba(232, 184, 77, 0.3))',
         scrollTrigger: {
           trigger: logo,
           start: 'top bottom',
           end: 'top center',
           scrub: true,
           immediateRender: true
+        }
+      }
+    );
+
+    // Rotation animation on the container
+    gsap.fromTo(
+      logo,
+      { transformOrigin: '50% 50%', rotate: 4 },
+      {
+        ease: 'none',
+        rotate: 0,
+        scrollTrigger: {
+          trigger: logo,
+          start: 'top bottom',
+          end: 'top center',
+          scrub: true
         }
       }
     );
@@ -161,9 +177,6 @@ export default function App() {
                         src="/assets/steamer_holeebao_v1.png"
                         alt="Holee Bao Logo"
                         className="w-full h-full object-contain drop-shadow-2xl"
-                        style={{
-                          filter: 'drop-shadow(0 0 20px rgba(232, 184, 77, 0.6)) drop-shadow(0 0 40px rgba(232, 184, 77, 0.3))',
-                        }}
                         onError={handleImageError}
                       />
                     ) : (
