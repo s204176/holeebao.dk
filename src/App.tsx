@@ -144,10 +144,10 @@ export default function App() {
           {/* Tagline with GSAP ScrollReveal */}
           <div className="mb-8">
             <ScrollReveal
-              baseOpacity={0.1}
+              baseOpacity={0}
               enableBlur={true}
-              baseRotation={2}
-              blurStrength={6}
+              baseRotation={5}
+              blurStrength={15}
               containerClassName="mb-4"
               textClassName="text-white font-display font-bold"
             >
@@ -155,10 +155,10 @@ export default function App() {
             </ScrollReveal>
 
             <ScrollReveal
-              baseOpacity={0.1}
+              baseOpacity={0}
               enableBlur={true}
-              baseRotation={1}
-              blurStrength={4}
+              baseRotation={3}
+              blurStrength={10}
               textClassName="text-white font-medium text-lg sm:text-xl"
             >
               Fresh steamed baos arriving soon to Copenhagen

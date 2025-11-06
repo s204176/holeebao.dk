@@ -77,9 +77,10 @@ const ScrollReveal = ({
         scrollTrigger: {
           trigger: el,
           scroller,
-          start: 'top bottom-=20%',
-          end: wordAnimationEnd,
-          scrub: true
+          start: 'top bottom',
+          end: 'center center',
+          scrub: true,
+          immediateRender: true
         }
       }
     );
@@ -95,9 +96,10 @@ const ScrollReveal = ({
           scrollTrigger: {
             trigger: el,
             scroller,
-            start: 'top bottom-=20%',
-            end: wordAnimationEnd,
-            scrub: true
+            start: 'top bottom',
+            end: 'center center',
+            scrub: true,
+            immediateRender: true
           }
         }
       );
