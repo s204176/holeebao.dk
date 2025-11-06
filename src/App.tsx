@@ -40,39 +40,31 @@ export default function App() {
 
   // GSAP ScrollTrigger for logo blur effect
   useEffect(() => {
-    if (!logoRef.current) return;
+    if (!logoRef.current || isLoading) return;
 
     const logo = logoRef.current;
 
-    // Rotation animation
+    // Combined blur, opacity, and rotation animation
     gsap.fromTo(
       logo,
-      { transformOrigin: '50% 50%', rotate: 4 },
+      {
+        transformOrigin: '50% 50%',
+        rotate: 4,
+        opacity: 0,
+        filter: 'blur(10px)',
+        willChange: 'filter, opacity, transform'
+      },
       {
         ease: 'none',
         rotate: 0,
-        scrollTrigger: {
-          trigger: logo,
-          start: 'top bottom',
-          end: 'top center',
-          scrub: true
-        }
-      }
-    );
-
-    // Blur and opacity animation
-    gsap.fromTo(
-      logo,
-      { opacity: 0, filter: 'blur(10px)' },
-      {
-        ease: 'none',
         opacity: 1,
         filter: 'blur(0px)',
         scrollTrigger: {
           trigger: logo,
           start: 'top bottom',
           end: 'top center',
-          scrub: true
+          scrub: true,
+          immediateRender: true
         }
       }
     );
@@ -82,7 +74,7 @@ export default function App() {
         if (trigger.vars.trigger === logo) trigger.kill();
       });
     };
-  }, []);
+  }, [isLoading]);
 
   return (
     <AnimatePresence mode="wait">
@@ -204,9 +196,9 @@ export default function App() {
 
             <ScrollReveal
               baseOpacity={0}
-              enableBlur={true}
-              baseRotation={3}
-              blurStrength={1}
+              enableBlur={false}
+              baseRotation={2}
+              blurStrength={0}
               textClassName="text-white font-medium text-lg sm:text-xl"
             >
               Fresh steamed baos arriving soon to Copenhagen
