@@ -8,7 +8,7 @@ import LoadingScreen from './components/LoadingScreen';
 import Threads from './components/Threads';
 import ScrollIndicator from './components/ScrollIndicator';
 import GradualBlur from './components/GradualBlur';
-import ScrollFloat from './components/ScrollFloat';
+import ScrollReveal from './components/ScrollReveal';
 
 export default function App() {
   const [imageError, setImageError] = useState(false);
@@ -75,26 +75,20 @@ export default function App() {
       <motion.div
         className="absolute left-1/2 -translate-x-1/2 w-48 h-48 pointer-events-none z-20"
         style={{
-          top: 'calc(100vh - 10rem)',
+          top: 'calc(100vh - 6rem)',
           opacity: landingSteamOpacity
         }}
       >
         <SteamEffect />
       </motion.div>
 
-      {/* Second Section - ALL CONTENT AT ONCE with ScrollFloat */}
+      {/* Second Section - ALL CONTENT AT ONCE with ScrollReveal */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-16 bg-bao-golden">
         <div className="text-center max-w-4xl w-full">
 
-          {/* Logo with ScrollFloat */}
-          <ScrollFloat speed={0.3} direction="down">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-              className="relative mb-8 inline-block"
-            >
+          {/* Logo with ScrollReveal */}
+          <ScrollReveal delay={0} duration={0.8} direction="up">
+            <div className="relative mb-8 inline-block">
               {/* Logo Container with Steam Effect */}
               <div className="relative w-40 h-40 sm:w-48 sm:h-48 flex items-center justify-center mx-auto">
                 {/* Logo Steam - Fades in on scroll */}
@@ -134,18 +128,12 @@ export default function App() {
                   </TiltWrapper>
                 </div>
               </div>
-            </motion.div>
-          </ScrollFloat>
+            </div>
+          </ScrollReveal>
 
-          {/* Tagline with ScrollFloat */}
-          <ScrollFloat speed={0.5} direction="up">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-8"
-            >
+          {/* Tagline with ScrollReveal */}
+          <ScrollReveal delay={0.2} duration={0.6} direction="up">
+            <div className="mb-8">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-4">
                 Something Delicious <br className="sm:hidden" />
                 <span className="text-white" style={{
@@ -158,18 +146,12 @@ export default function App() {
               <p className="text-lg sm:text-xl text-white font-medium">
                 Fresh steamed baos arriving soon to Copenhagen
               </p>
-            </motion.div>
-          </ScrollFloat>
+            </div>
+          </ScrollReveal>
 
-          {/* Coming Soon Badge with ScrollFloat */}
-          <ScrollFloat speed={0.4} direction="down">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: 0.4, duration: 0.5, type: 'spring' }}
-              className="mb-12"
-            >
+          {/* Coming Soon Badge with ScrollReveal */}
+          <ScrollReveal delay={0.4} duration={0.5} direction="up">
+            <div className="mb-12">
               <motion.div
                 animate={{
                   boxShadow: [
@@ -203,19 +185,15 @@ export default function App() {
                   COMING SOON
                 </motion.span>
               </motion.div>
-            </motion.div>
-          </ScrollFloat>
+            </div>
+          </ScrollReveal>
 
-          {/* Instagram Button with ScrollFloat */}
-          <ScrollFloat speed={0.3} direction="down">
+          {/* Instagram Button with ScrollReveal */}
+          <ScrollReveal delay={0.6} duration={0.6} direction="up">
             <motion.a
               href="https://www.instagram.com/holeebao.cph/"
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-purple-600 to-pink-600
@@ -227,7 +205,7 @@ export default function App() {
               </svg>
               Follow @holeebao.cph
             </motion.a>
-          </ScrollFloat>
+          </ScrollReveal>
 
         </div>
       </div>
