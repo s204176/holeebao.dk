@@ -10,6 +10,7 @@ import ScrollIndicator from './components/ScrollIndicator';
 import GradualBlur from './components/GradualBlur';
 import ScrollReveal from './components/ScrollReveal';
 import ScrollVelocity from './components/ScrollVelocity';
+import MouseSparkles from './components/MouseSparkles';
 
 export default function App() {
   const [imageError, setImageError] = useState(false);
@@ -40,6 +41,9 @@ export default function App() {
         <LoadingScreen key="loading" />
       ) : (
     <div key="main" className="relative min-h-screen bg-bao-golden">
+      {/* Mouse Sparkles Effect */}
+      <MouseSparkles />
+
       {/* Threads Effect - Fixed Background */}
       <div className="fixed inset-0 z-0">
         <Threads
