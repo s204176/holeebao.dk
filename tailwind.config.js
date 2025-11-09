@@ -30,6 +30,7 @@ export default {
         'steam': 'steam 4s ease-out infinite',
         'fadeIn': 'fadeIn 1s ease-in',
         'slideUp': 'slideUp 0.8s ease-out',
+        'shine': 'shine 5s linear infinite',
       },
       keyframes: {
         float: {
@@ -59,6 +60,10 @@ export default {
             transform: 'translateY(0)',
             opacity: '1'
           },
+        },
+        shine: {
+          '0%': { 'background-position': '100%' },
+          '100%': { 'background-position': '-100%' },
         },
       },
     },
