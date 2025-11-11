@@ -209,7 +209,8 @@ export default function App() {
               text="Follow @holeebao.cph"
               disabled={false}
               speed={3}
-              className="relative z-10 font-black text-2xl whitespace-nowrap text-black"
+              color="black"
+              className="relative z-10 font-black text-2xl whitespace-nowrap"
             />
           </motion.a>
 
