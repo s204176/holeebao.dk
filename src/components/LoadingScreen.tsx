@@ -56,7 +56,7 @@ export default function LoadingScreen() {
             }}
             className="text-7xl sm:text-8xl font-display font-bold text-white mb-4"
           >
-            HOLEE BAO
+            HO LEE BAO
           </motion.div>
 
           <motion.div
