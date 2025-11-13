@@ -41,7 +41,7 @@ export default function App() {
       {isLoading ? (
         <LoadingScreen key="loading" />
       ) : (
-    <div key="main" className="relative min-h-screen bg-bao-golden">
+    <div key="main" className="relative min-h-screen bg-bao-golden w-full">
       {/* Mouse Sparkles Effect */}
       <MouseSparkles />
 
@@ -59,8 +59,8 @@ export default function App() {
       <FloatingBaos />
 
       {/* First Section - MINIMAL with Gradual Blur */}
-      <GradualBlur className="relative z-10 min-h-screen">
-        <div className="flex flex-col items-center justify-center h-screen px-6 py-4">
+      <GradualBlur className="relative z-10 min-h-screen w-full">
+        <div className="flex flex-col items-center justify-center h-screen px-6 py-4 w-full">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -85,13 +85,15 @@ export default function App() {
 
       {/* Landing Page Steam - Positioned at bottom, fades out on scroll */}
       <motion.div
-        className="absolute left-1/2 -translate-x-1/2 w-48 h-48 pointer-events-none z-20"
+        className="fixed left-0 right-0 pointer-events-none z-20 flex justify-center"
         style={{
           top: 'calc(100vh - 3rem)',
           opacity: landingSteamOpacity
         }}
       >
-        <SteamEffect />
+        <div className="w-48 h-48">
+          <SteamEffect />
+        </div>
       </motion.div>
 
       {/* Second Section - ALL CONTENT AT ONCE with ScrollReveal */}
