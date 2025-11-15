@@ -81,7 +81,7 @@ export default function App() {
 
       {/* First Section - MINIMAL with Gradual Blur */}
       <div id="home">
-      <GradualBlur className="relative z-10 min-h-screen w-full">
+      <GradualBlur className="relative z-20 min-h-screen w-full">
         <div className="flex flex-col items-center justify-center h-screen px-6 py-4 w-full">
           <motion.div
             initial={{ opacity: 0 }}
@@ -120,7 +120,7 @@ export default function App() {
       </motion.div>
 
       {/* Second Section - ALL CONTENT AT ONCE with ScrollReveal */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-16 bg-bao-golden">
+      <div className="relative z-20 min-h-screen flex flex-col items-center justify-center px-6 py-16 bg-bao-golden">
         <div className="text-center max-w-4xl w-full">
 
           {/* Logo */}
@@ -247,22 +247,22 @@ export default function App() {
       {/* New Sections */}
 
       {/* What Makes Us Special Section */}
-      <div id="about">
+      <div id="about" className="relative z-20">
         <WhatMakesUsSpecial />
       </div>
 
       {/* Featured Menu Preview Section */}
-      <div id="menu">
+      <div id="menu" className="relative z-20">
         <FeaturedMenuPreview />
       </div>
 
       {/* Location & Hours Section */}
-      <div id="location">
+      <div id="location" className="relative z-20">
         <LocationHours />
       </div>
 
       {/* Final CTA Section */}
-      <div id="order">
+      <div id="order" className="relative z-20">
         <FinalCTA />
       </div>
 

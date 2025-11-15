@@ -61,9 +61,9 @@ export default function ParticleExplosion() {
 
   return (
     <div
-      className="fixed inset-0 pointer-events-none z-30"
+      className="fixed inset-0 pointer-events-none z-[5]"
       onClick={handleClick}
-      style={{ pointerEvents: 'all' }}
+      style={{ pointerEvents: 'none' }}
     >
       {particles.map(p => (
         <motion.div

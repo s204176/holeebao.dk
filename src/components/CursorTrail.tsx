@@ -48,7 +48,7 @@ export default function CursorTrail() {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-[999]">
+    <div className="fixed inset-0 pointer-events-none z-[5]">
       {/* Main cursor */}
       <motion.div
         className="absolute w-8 h-8 rounded-full border-2 border-bao-golden mix-blend-difference"

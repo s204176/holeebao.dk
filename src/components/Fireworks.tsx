@@ -81,7 +81,7 @@ export default function Fireworks() {
   });
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-40">
+    <div className="fixed inset-0 pointer-events-none z-[5]">
       {fireworks.map(fw => (
         <div key={fw.id}>
           {!fw.exploded ? (

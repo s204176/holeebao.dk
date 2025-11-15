@@ -113,7 +113,7 @@ export default function MouseSparkles() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-50"
+      className="fixed inset-0 pointer-events-none z-[5]"
       style={{ mixBlendMode: 'screen' }}
     />
   );
