@@ -17,6 +17,9 @@ import WhatMakesUsSpecial from './components/WhatMakesUsSpecial';
 import FeaturedMenuPreview from './components/FeaturedMenuPreview';
 import LocationHours from './components/LocationHours';
 import FinalCTA from './components/FinalCTA';
+import MorphingBlobs from './components/MorphingBlobs';
+import ParticleExplosion from './components/ParticleExplosion';
+import AnimatedText from './components/AnimatedText';
 
 export default function App() {
   const [imageError, setImageError] = useState(false);
@@ -49,6 +52,10 @@ export default function App() {
     <div key="main" className="relative min-h-screen bg-bao-golden w-full">
       {/* Navigation */}
       <Navigation />
+
+      {/* CRAZY NEW EFFECTS */}
+      <MorphingBlobs />
+      <ParticleExplosion />
 
       {/* Mouse Sparkles Effect */}
       <MouseSparkles />

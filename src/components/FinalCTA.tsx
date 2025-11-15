@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import MagneticButton from './MagneticButton';
+import AnimatedText from './AnimatedText';
 import { useState } from 'react';
 
 export default function FinalCTA() {
@@ -62,36 +63,35 @@ export default function FinalCTA() {
       <div className="relative z-10 max-w-6xl mx-auto w-full text-center">
         {/* Main Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ type: 'spring', damping: 20, stiffness: 100 }}
           className="mb-12"
         >
-          <motion.h2
-            initial={{ scale: 0.9 }}
-            whileInView={{ scale: 1 }}
+          <div className="mb-6" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.3)' }}>
+            <AnimatedText
+              text="Hungry Yet?"
+              className="text-6xl md:text-8xl font-display font-bold text-white"
+              animationType="bounce"
+              stagger={0.08}
+            />
+          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-5xl md:text-7xl font-display font-bold text-white mb-6"
-            style={{
-              textShadow: '0 4px 20px rgba(0,0,0,0.2)'
-            }}
-          >
-            Hungry Yet?
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto"
-            style={{
-              textShadow: '0 2px 10px rgba(0,0,0,0.2)'
-            }}
+            style={{ textShadow: '0 2px 10px rgba(0,0,0,0.2)' }}
           >
-            Order fresh steamed baos for takeaway or dine with us
-          </motion.p>
+            <AnimatedText
+              text="Order fresh steamed baos for takeaway or dine with us"
+              animationType="wave"
+              stagger={0.02}
+              delay={0.5}
+            />
+          </motion.div>
         </motion.div>
 
         {/* Main CTA Button - Magnetic */}
