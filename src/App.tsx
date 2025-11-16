@@ -10,7 +10,6 @@ import ScrollIndicator from './components/ScrollIndicator';
 import GradualBlur from './components/GradualBlur';
 import ScrollReveal from './components/ScrollReveal';
 import ScrollVelocity from './components/ScrollVelocity';
-import MouseSparkles from './components/MouseSparkles';
 import ShinyText from './components/ShinyText';
 import Navigation from './components/Navigation';
 import WhatMakesUsSpecial from './components/WhatMakesUsSpecial';
@@ -58,9 +57,6 @@ export default function App() {
       <ScrollProgress />
       <Fireworks />
       <MorphingBlobs />
-
-      {/* Mouse Sparkles Effect */}
-      <MouseSparkles />
 
       {/* Threads Effect - Fixed Background */}
       <div className="fixed inset-0 z-0">
