@@ -47,7 +47,7 @@ export default function Card3D({ children, backContent, className = '', canFlip 
   return (
     <motion.div
       ref={ref}
-      className={`relative ${className}`}
+      className={`relative h-full ${className}`}
       style={{
         perspective: 1000
       }}

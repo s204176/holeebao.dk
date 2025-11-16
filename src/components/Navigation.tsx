@@ -48,17 +48,10 @@ export default function Navigation() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-3 group cursor-pointer"
+            className="group cursor-pointer"
           >
-            <motion.div
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.6 }}
-              className="w-12 h-12 bg-gradient-to-br from-bao-golden to-yellow-600 rounded-xl flex items-center justify-center shadow-lg"
-            >
-              <span className="text-2xl">🥟</span>
-            </motion.div>
             <span className="text-2xl font-display font-bold text-gray-900">
-              Holee Bao
+              Ho Lee Bao
             </span>
           </motion.a>
 

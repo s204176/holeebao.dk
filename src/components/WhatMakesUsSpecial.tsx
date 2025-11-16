@@ -147,6 +147,7 @@ export default function WhatMakesUsSpecial() {
                 stiffness: 100,
                 delay: index * 0.2
               }}
+              className="min-h-[400px]"
             >
               <Card3D
                 canFlip={true}

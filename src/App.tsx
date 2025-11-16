@@ -90,6 +90,7 @@ export default function App() {
               className="font-display font-bold text-white px-16 py-4"
               scrollerClassName="text-lg sm:text-xl md:text-2xl gap-16"
               numCopies={4}
+              velocityMapping={{ input: [0, 1000], output: [0, 15] }}
               scrollerStyle={{
                 textShadow: '0 0 30px rgba(232, 184, 77, 0.8), 0 0 60px rgba(232, 184, 77, 0.4)',
               }}
@@ -188,7 +189,7 @@ export default function App() {
               blurStrength={0}
               textClassName="text-white font-medium text-lg sm:text-xl"
             >
-              Fresh steamed baos arriving soon to Copenhagen
+              Handcrafted Steamed Baos Made Fresh Daily in Copenhagen
             </ScrollReveal>
           </div>
 
