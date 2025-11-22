@@ -41,7 +41,7 @@ export default function App() {
       {isLoading ? (
         <LoadingScreen key="loading" />
       ) : (
-    <div key="main" className="relative min-h-screen bg-bao-golden">
+    <div key="main" className="relative min-h-screen bg-bao-golden overflow-x-hidden max-w-full">
       {/* Mouse Sparkles Effect */}
       <MouseSparkles />
 
@@ -59,8 +59,8 @@ export default function App() {
       <FloatingBaos />
 
       {/* First Section - MINIMAL with Gradual Blur */}
-      <GradualBlur className="relative z-10 min-h-screen">
-        <div className="relative flex flex-col items-center justify-center h-screen w-full px-6 py-4">
+      <GradualBlur className="relative z-10 min-h-screen overflow-x-hidden">
+        <div className="relative flex flex-col items-center justify-center h-screen w-full px-6 py-4 overflow-x-hidden">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
