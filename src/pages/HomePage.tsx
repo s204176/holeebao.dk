@@ -218,7 +218,7 @@ export default function HomePage() {
 
       {/* ============ MENU PREVIEW SECTION ============ */}
       <motion.section
-        className="py-24 px-6 w-full max-w-full overflow-x-hidden cv-auto"
+        className="py-24 px-6 w-full max-w-full overflow-x-hidden"
         initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, amount: 0.2 }}
@@ -330,7 +330,7 @@ export default function HomePage() {
       </motion.section>
 
       {/* ============ PHILOSOPHY SECTION ============ */}
-      <section className="py-24 px-6 w-full max-w-full overflow-x-hidden cv-auto">
+      <section className="py-24 px-6 w-full max-w-full overflow-x-hidden">
         <div className="max-w-4xl mx-auto">
           {/* Quote */}
           <motion.div
@@ -376,7 +376,7 @@ export default function HomePage() {
       </section>
 
       {/* ============ LOCATION & FOOTER SECTION ============ */}
-      <section className="pt-16 pb-4 px-6 border-t border-white/10 w-full max-w-full overflow-x-hidden cv-auto">
+      <section className="pt-16 pb-4 px-6 border-t border-white/10 w-full max-w-full overflow-x-hidden">
         <div className="max-w-5xl mx-auto">
           {/* Location Header */}
           <motion.div

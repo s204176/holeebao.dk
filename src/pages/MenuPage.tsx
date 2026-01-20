@@ -87,7 +87,7 @@ export default function MenuPage() {
 
         {/* WEEKEND SPECIAL TEASER */}
         <motion.section
-          className="mt-16 mb-12 cv-auto"
+          className="mt-16 mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0 }}
@@ -176,7 +176,7 @@ interface MenuSectionProps {
 function MenuSection({ title, subtitle, items, delay, badge, startNumber = 1, hideNumbers = false }: MenuSectionProps) {
   return (
     <motion.section
-      className="mb-16 cv-auto"
+      className="mb-16"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay }}
