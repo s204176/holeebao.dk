@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
 // SVG Icon component for feature cards
 const FeatureIcon = ({ type }: { type: string }) => {
@@ -47,12 +48,19 @@ const FeatureIcon = ({ type }: { type: string }) => {
 };
 
 export default function AboutPage() {
+  // Force scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, []);
+
   return (
-    <div className="bg-bao-golden px-6 py-24 pb-32">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-bao-golden px-6 pt-24 pb-8 w-full max-w-full overflow-x-hidden">
+      <div className="max-w-4xl mx-auto w-full">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -66,7 +74,7 @@ export default function AboutPage() {
         </motion.div>
 
         {/* Main Content */}
-        <div className="space-y-12">
+        <div className="space-y-8">
           {/* Section 1 */}
           <motion.div
             className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/20"

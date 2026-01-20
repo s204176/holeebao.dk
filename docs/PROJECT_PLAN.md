@@ -62,7 +62,7 @@ Proteins:
 - ✅ **Opening:** Early 2026
 
 ### 3. Brand & Story
-- ✅ **Location:** Åboulevard 9, 1635 København V
+- ✅ **Location:** Åboulevard 7, st tv, 1635 København V
 - ✅ **Team:** Same crew behind Lee's Kitchen (est. 2021)
 - ✅ **Philosophy:** Modern Chinese food without the fuss, quality ingredients, no-nonsense execution
 - ✅ **What's Unique:**

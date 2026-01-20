@@ -9,7 +9,7 @@
 - **Removed Opening Date**: Deleted "Estimated Opening Early 2026" section for cleaner design
 - **Two-Section Scroll Design**:
   - Section 1: Minimal - just "Scroll to see what's steaming" text with gradual blur effect
-  - Section 2: ALL content at once (logo, tagline, COMING SOON, Instagram) with ScrollFloat effects
+  - Section 2: ALL conten3 at once (logo, tagline, COMING SOON, Instagram) with ScrollFloat effects
 - **ScrollFloat Effects**: Parallax scroll effects on individual elements (logo, tagline, badge, button) with varying speeds and directions
 - **Scroll Indicator**: Centered bouncing arrow (no duplicate text)
 - **Gradual Blur Effect**: First section blurs as you scroll down
@@ -72,7 +72,7 @@ To revert to no-scroll version: `git checkout claude/holee-bao-landing-page-011C
 https://www.instagram.com/holeebao.cph/
 
 ### Location
-Åboulevard 9, 1635 København V (currently not displayed on page)
+Åboulevard 7, st tv, 1635 København V
 
 ---
 

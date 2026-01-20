@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import SteamEffect from '../components/effects/SteamEffect';
 import TiltWrapper from '../components/effects/TiltWrapper';
 
@@ -9,33 +10,37 @@ const featuredItems = [
     id: 'bao-mala-beef',
     name: 'Mala Beef Bao',
     description: 'Spicy Sichuan beef with numbing mala spice',
-    price: '39KR',
+    price: '30KR',
     tag: 'SIGNATURE',
     tagColor: 'bg-red-100 text-red-700',
+    image: '9',
   },
   {
-    id: 'bao-duck',
-    name: 'Ducking Bao',
-    description: 'Tender duck with hoisin and cucumber',
-    price: '39KR',
-    tag: 'FAN FAVORITE',
-    tagColor: 'bg-amber-100 text-amber-700',
+    id: 'rice-braised-beef',
+    name: 'Braised Beef Rice',
+    description: 'Slow-cooked beef served with rice',
+    price: '109KR',
+    tag: 'SIGNATURE',
+    tagColor: 'bg-red-100 text-red-700',
+    image: '1',
   },
   {
-    id: 'bao-vegan',
-    name: 'Vegan Bao',
-    description: 'Plant-based filling with fresh vegetables',
-    price: '39KR',
-    tag: 'VEGAN',
-    tagColor: 'bg-green-100 text-green-700',
-  },
-  {
-    id: 'bowl-hong-shao-pork',
-    name: 'Hong Shao Pork Bowl',
-    description: 'Braised pork belly in sweet soy sauce. Choose noodles or rice.',
-    price: '98KR',
-    tag: 'BOWL',
+    id: 'side-shrimp-toast',
+    name: 'Crunchy Shrimp Toast',
+    description: 'Crispy toast topped with shrimp (sweet chili included)',
+    price: '79KR',
+    tag: 'POPULAR',
     tagColor: 'bg-purple-100 text-purple-700',
+    image: '7',
+  },
+  {
+    id: 'side-spicy-dumplings',
+    name: 'Spicy Boiled Dumplings',
+    description: 'Boiled dumplings with spicy sauce',
+    price: '69KR',
+    tag: 'SPICY',
+    tagColor: 'bg-orange-100 text-orange-700',
+    image: '8',
   },
 ];
 
@@ -81,10 +86,17 @@ const features = [
 ];
 
 export default function HomePage() {
+  // Force scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, []);
+
   return (
-    <div className="relative">
+    <div className="relative w-full max-w-full overflow-x-hidden">
       {/* ============ HERO SECTION ============ */}
-      <section className="min-h-[calc(100vh-5rem)] flex flex-col items-center justify-center px-6 relative overflow-hidden">
+      <section className="min-h-[calc(100vh-5rem)] flex flex-col items-center justify-center px-6 relative overflow-hidden w-full max-w-full">
         <div className="text-center max-w-6xl w-full relative z-10">
           {/* HO LEE BAO Title - Above Logo */}
           <motion.div
@@ -177,7 +189,7 @@ export default function HomePage() {
       </section>
 
       {/* ============ MENU PREVIEW SECTION ============ */}
-      <section className="py-24 px-6">
+      <section className="py-24 px-6 w-full max-w-full overflow-x-hidden">
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
           <motion.div
@@ -207,16 +219,13 @@ export default function HomePage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.02, y: -4 }}
               >
-                {/* Image Placeholder */}
+                {/* Image */}
                 <div className="aspect-[16/10] bg-bao-golden/20 relative overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <svg className="w-16 h-16 text-bao-golden-dark/40 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <p className="text-bao-golden-dark/60 text-sm mt-2">Photo coming soon</p>
-                    </div>
-                  </div>
+                  <img
+                    src={`/images/menu/${item.image}.png`}
+                    alt={item.name}
+                    className="w-full h-full object-cover"
+                  />
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-bao-golden/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -240,17 +249,33 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* View Full Menu CTA */}
+          {/* CTAs */}
           <motion.div
-            className="text-center"
+            className="text-center flex flex-col sm:flex-row items-center justify-center gap-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
+            <a
+              href="https://holeebao.dully.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white rounded-full text-bao-golden-dark font-bold text-lg hover:scale-105 hover:shadow-xl transition-all duration-300"
+            >
+              Order Takeaway
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
             <Link
               to="/menu"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white rounded-full text-bao-golden-dark font-bold text-lg hover:scale-105 hover:shadow-xl transition-all duration-300"
+              onClick={() => {
+                window.scrollTo(0, 0);
+                document.documentElement.scrollTop = 0;
+                document.body.scrollTop = 0;
+              }}
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white/20 backdrop-blur-sm border-2 border-white rounded-full text-white font-bold text-lg hover:scale-105 hover:bg-white/30 transition-all duration-300"
             >
               View Full Menu
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -262,7 +287,7 @@ export default function HomePage() {
       </section>
 
       {/* ============ PHILOSOPHY SECTION ============ */}
-      <section className="py-24 px-6">
+      <section className="py-24 px-6 w-full max-w-full overflow-x-hidden">
         <div className="max-w-4xl mx-auto">
           {/* Quote */}
           <motion.div
@@ -308,7 +333,7 @@ export default function HomePage() {
       </section>
 
       {/* ============ LOCATION & FOOTER SECTION ============ */}
-      <section className="py-24 px-6 border-t border-white/10">
+      <section className="pt-16 pb-4 px-6 border-t border-white/10 w-full max-w-full overflow-x-hidden">
         <div className="max-w-5xl mx-auto">
           {/* Location Header */}
           <motion.div
@@ -344,16 +369,16 @@ export default function HomePage() {
               </div>
               <h3 className="text-gray-900 font-bold text-2xl mb-4">Location</h3>
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Åboulevard+9+1635+København+V"
+                href="https://www.google.com/maps/search/?api=1&query=Åboulevard+7+st+tv+1635+København+V"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 text-lg hover:text-gray-900 transition-colors block mb-6"
               >
-                Åboulevard 9<br />
+                Åboulevard 7, st tv<br />
                 1635 København V
               </a>
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Åboulevard+9+1635+København+V"
+                href="https://www.google.com/maps/search/?api=1&query=Åboulevard+7+st+tv+1635+København+V"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-bao-golden rounded-full text-white font-medium hover:bg-bao-golden-dark transition-colors"

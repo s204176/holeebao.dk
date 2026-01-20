@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation, useNavigationType } from 'react-router-dom';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Navigation from './components/layout/Navigation';
 import HomePage from './pages/HomePage';
@@ -13,29 +13,40 @@ import FloatingBaos from './components/effects/FloatingBaos';
 // Scroll to top on route change
 function ScrollToTop() {
   const { pathname } = useLocation();
+  const navigationType = useNavigationType();
 
+  // Use useLayoutEffect to scroll before paint
+  useLayoutEffect(() => {
+    // Always scroll to top on navigation (except browser back/forward)
+    if (navigationType !== 'POP') {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
+  }, [pathname, navigationType]);
+
+  // Also use useEffect with requestAnimationFrame as backup
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (navigationType !== 'POP') {
+      requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      });
+    }
+  }, [pathname, navigationType]);
 
   return null;
 }
 
-export default function AppRouter() {
-  const [isLoading, setIsLoading] = useState(true);
+function BackgroundEffects() {
+  const location = useLocation();
   const [threadsOpacity, setThreadsOpacity] = useState(1);
   const [threadsBlur, setThreadsBlur] = useState(0);
 
-  useEffect(() => {
-    // Show loading screen for 4 seconds - let steamer lid animation complete
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 4000);
+  // Only show on home and menu pages
+  const showBackground = location.pathname === '/' || location.pathname === '/menu';
 
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Fade out and blur Threads background as user scrolls
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -55,6 +66,41 @@ export default function AppRouter() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  if (!showBackground) return null;
+
+  return (
+    <>
+      <div
+        className="fixed inset-0 z-0 transition-all duration-150"
+        style={{
+          opacity: threadsOpacity,
+          filter: `blur(${threadsBlur}px)`,
+        }}
+      >
+        <Threads
+          color={[1, 1, 1]}
+          amplitude={0.3}
+          distance={0.8}
+          enableMouseInteraction={false}
+        />
+      </div>
+      <FloatingBaos />
+    </>
+  );
+}
+
+export default function AppRouter() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Show loading screen for 4 seconds - let steamer lid animation complete
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <AnimatePresence mode="wait">
       {isLoading ? (
@@ -68,26 +114,10 @@ export default function AppRouter() {
               duration: 1.0,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="relative min-h-screen bg-bao-golden overflow-x-hidden"
+            className="relative min-h-screen bg-bao-golden overflow-x-hidden w-full max-w-full"
           >
-            {/* Threads Effect - Fixed Background with scroll-based fade and blur */}
-            <div
-              className="fixed inset-0 z-0 transition-all duration-150"
-              style={{
-                opacity: threadsOpacity,
-                filter: `blur(${threadsBlur}px)`,
-              }}
-            >
-              <Threads
-                color={[1, 1, 1]}
-                amplitude={0.3}
-                distance={0.8}
-                enableMouseInteraction={false}
-              />
-            </div>
-
-            {/* Floating Background Shapes */}
-            <FloatingBaos />
+            {/* Background Effects - Only on Home and Menu pages */}
+            <BackgroundEffects />
 
             {/* Navigation */}
             <Navigation />
@@ -96,7 +126,7 @@ export default function AppRouter() {
             <ScrollToTop />
 
             {/* Page Content */}
-            <div className="relative z-10 pt-20">
+            <div className="relative z-10 pt-20 w-full max-w-full overflow-x-hidden">
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/menu" element={<MenuPage />} />

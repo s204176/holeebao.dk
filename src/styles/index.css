@@ -5,12 +5,12 @@
 /* Custom Font: Vrau Loux */
 @font-face {
   font-family: 'Vrau Loux';
-  src: url('/fonts/Vrau Loux.woff2') format('woff2'),
-       url('/fonts/Vrau Loux.woff') format('woff'),
-       url('/fonts/Vrau Loux.ttf') format('truetype');
+  src: url('/fonts/Vrau%20Loux.woff2') format('woff2'),
+       url('/fonts/Vrau%20Loux.woff') format('woff'),
+       url('/fonts/Vrau%20Loux.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @layer base {
@@ -18,19 +18,20 @@
     @apply h-full m-0;
     background-color: #FAFAFA;
     overflow-x: hidden;
-  }
-
-  body, #root {
-    @apply h-full m-0;
-    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   body {
-    @apply font-sans antialiased;
+    @apply h-full m-0 font-sans antialiased;
     overflow-x: hidden;
+    overflow-y: auto;
     padding-top: env(safe-area-inset-top);
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
+    position: relative;
+    width: 100%;
+    max-width: 100vw;
+    font-family: 'Vrau Loux', ui-sans-serif, system-ui, -apple-system, sans-serif !important;
     background:
       /* Bamboo texture pattern */
       repeating-linear-gradient(
@@ -50,6 +51,14 @@
       /* Warm gradient - dawn/dusk Copenhagen vibes */
       radial-gradient(circle at top left, #FFF8E7 0%, #FAFAFA 40%),
       linear-gradient(135deg, #F5F1E8 0%, #FAFAFA 50%, #FFF8E7 100%);
+  }
+
+  #root {
+    @apply m-0;
+    overflow-x: hidden;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100vw;
     position: relative;
   }
 
@@ -63,6 +72,16 @@
     background: radial-gradient(circle at 50% 100%, rgba(232, 184, 77, 0.15) 0%, transparent 60%);
     pointer-events: none;
     z-index: 0;
+  }
+
+  /* Prevent all scrollbars from appearing horizontally */
+  * {
+    @apply max-w-full;
+  }
+
+  /* Force Vrau Loux font on all headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Vrau Loux', ui-serif, Georgia, serif !important;
   }
 }
 

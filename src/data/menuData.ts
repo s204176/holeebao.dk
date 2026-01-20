@@ -7,8 +7,8 @@ export interface MenuItem {
   nameEn?: string;
   description?: string;
   price?: number;
-  priceOption?: string; // For items like "1 for 39KR, 2 for 69KR"
-  category: 'bao' | 'bowl' | 'share' | 'special' | 'dessert' | 'drink';
+  priceOption?: string; // For items like "1 for 30KR, 3 for 70KR"
+  category: 'bao' | 'rice' | 'noodle' | 'side' | 'addon' | 'special' | 'drink' | 'hot-drink';
   isVegetarian?: boolean;
   isVegan?: boolean;
   availability?: 'everyday' | 'weekend' | 'monthly';
@@ -16,200 +16,238 @@ export interface MenuItem {
   image?: string;
 }
 
-// BAOS - 1 for 39KR / 2 for 69KR (steam or pan fried)
+// RICE DISHES
+export const rice: MenuItem[] = [
+  {
+    id: 'rice-braised-beef',
+    name: 'Braised Beef Rice',
+    description: 'Slow-cooked beef served with rice',
+    price: 109,
+    category: 'rice',
+    availability: 'everyday',
+    image: '1',
+  },
+  {
+    id: 'rice-braised-pork',
+    name: 'Braised Pork Rice',
+    description: 'Tender braised pork served with rice',
+    price: 99,
+    category: 'rice',
+    availability: 'everyday',
+    image: '2',
+  },
+  {
+    id: 'rice-braised-mock-duck',
+    name: 'Braised Mock Duck Rice',
+    description: 'Plant-based mock duck served with rice',
+    price: 99,
+    category: 'rice',
+    isVegetarian: true,
+    isVegan: true,
+    availability: 'everyday',
+    image: '3',
+  },
+];
+
+// NOODLE DISHES
+export const noodles: MenuItem[] = [
+  {
+    id: 'noodle-braised-beef',
+    name: 'Braised Beef Noodles',
+    description: 'Slow-cooked beef served with noodles',
+    price: 109,
+    category: 'noodle',
+    availability: 'everyday',
+    image: '4',
+  },
+  {
+    id: 'noodle-braised-pork',
+    name: 'Braised Pork Noodles',
+    description: 'Tender braised pork served with noodles',
+    price: 99,
+    category: 'noodle',
+    availability: 'everyday',
+    image: '5',
+  },
+  {
+    id: 'noodle-braised-mock-duck',
+    name: 'Braised Mock Duck Noodles',
+    description: 'Plant-based mock duck served with noodles',
+    price: 99,
+    category: 'noodle',
+    isVegetarian: true,
+    isVegan: true,
+    availability: 'everyday',
+    image: '6',
+  },
+];
+
+// SIDES
+export const sides: MenuItem[] = [
+  {
+    id: 'side-shrimp-toast',
+    name: 'Crunchy Shrimp Toast',
+    description: 'Crispy toast topped with shrimp (sweet chili included)',
+    price: 79,
+    category: 'side',
+    availability: 'everyday',
+    image: '7',
+  },
+  {
+    id: 'side-spicy-dumplings',
+    name: 'Spicy Boiled Dumplings',
+    description: 'Boiled dumplings with spicy sauce',
+    price: 69,
+    category: 'side',
+    availability: 'everyday',
+    image: '8',
+  },
+];
+
+// ADD-ONS (Tilvalg til retterne - Not for baos)
+export const addons: MenuItem[] = [
+  {
+    id: 'addon-peanuts',
+    name: 'Peanuts',
+    description: 'Crunchy roasted peanuts',
+    price: 10,
+    category: 'addon',
+    availability: 'everyday',
+  },
+  {
+    id: 'addon-chili-oil',
+    name: 'Chili Oil',
+    description: 'Spicy aromatic chili oil',
+    price: 10,
+    category: 'addon',
+    availability: 'everyday',
+  },
+  {
+    id: 'addon-extra-meat',
+    name: 'Extra Meat',
+    description: 'Additional portion of meat',
+    price: 15,
+    category: 'addon',
+    availability: 'everyday',
+  },
+  {
+    id: 'addon-extra-noodles-rice',
+    name: 'Extra Noodles/Rice',
+    description: 'Additional noodles or rice',
+    price: 10,
+    category: 'addon',
+    availability: 'everyday',
+  },
+];
+
+// BAOS - 1 for 30KR / 3 for 70KR (Steamed)
 export const baos: MenuItem[] = [
   {
     id: 'bao-mala-beef',
     name: 'Mala Beef Bao',
     description: 'Spicy Sichuan beef with numbing mala spice',
-    priceOption: '1 for 39KR / 2 for 69KR',
+    priceOption: '1 for 30KR / 3 for 70KR',
     category: 'bao',
-    cookingMethod: 'both',
+    cookingMethod: 'steamed',
     availability: 'everyday',
+    image: '9',
   },
   {
-    id: 'bao-duck',
-    name: 'Ducking Bao',
+    id: 'bao-veggie',
+    name: 'Veggie Bao',
+    description: 'Fresh vegetables with savory sauce',
+    priceOption: '1 for 30KR / 3 for 70KR',
+    category: 'bao',
+    cookingMethod: 'steamed',
+    isVegetarian: true,
+    isVegan: true,
+    availability: 'everyday',
+    image: '10',
+  },
+  {
+    id: 'bao-ducking-good',
+    name: 'Ducking Good',
     description: 'Tender duck with hoisin and cucumber',
-    priceOption: '1 for 39KR / 2 for 69KR',
+    priceOption: '1 for 30KR / 3 for 70KR',
     category: 'bao',
-    cookingMethod: 'both',
+    cookingMethod: 'steamed',
     availability: 'everyday',
+    image: '11',
   },
   {
-    id: 'bao-vegan',
-    name: 'Vegan Bao',
-    description: 'Plant-based filling with fresh vegetables',
-    priceOption: '1 for 39KR / 2 for 69KR',
+    id: 'bao-pork',
+    name: 'Pork Bao',
+    description: 'Savory pork filling',
+    priceOption: '1 for 30KR / 3 for 70KR',
     category: 'bao',
-    cookingMethod: 'both',
-    isVegetarian: true,
-    isVegan: true,
+    cookingMethod: 'steamed',
     availability: 'everyday',
-  },
-  {
-    id: 'bao-curry',
-    name: 'Curry Bao',
-    description: 'Chicken and vegetables in aromatic curry',
-    priceOption: '1 for 39KR / 2 for 69KR',
-    category: 'bao',
-    cookingMethod: 'both',
-    availability: 'everyday',
+    image: '12',
   },
 ];
 
-// BOWLS - Choose noodles (2 types) or plain rice
-export const bowls: MenuItem[] = [
-  {
-    id: 'bowl-hong-shao-pork',
-    name: 'Hong Shao Pork Bowl',
-    description: 'Braised pork belly in sweet soy sauce. Choose noodles or rice.',
-    price: 98,
-    category: 'bowl',
-    availability: 'everyday',
-  },
-  {
-    id: 'bowl-braised-beef',
-    name: 'Braised Beef Bowl',
-    description: 'Slow-cooked beef in rich broth. Choose noodles or rice.',
-    price: 98,
-    category: 'bowl',
-    availability: 'everyday',
-  },
-  {
-    id: 'bowl-jingdu-chicken',
-    name: 'Jingdu Chicken Bowl',
-    description: 'Tomato-based chicken with vegetables. Choose noodles or rice.',
-    price: 98,
-    category: 'bowl',
-    availability: 'everyday',
-  },
-  {
-    id: 'bowl-mock-duck',
-    name: 'Braised Mock Duck Bowl',
-    description: 'Plant-based duck alternative. Choose noodles or rice.',
-    price: 98,
-    category: 'bowl',
-    isVegetarian: true,
-    isVegan: true,
-    availability: 'everyday',
-  },
-];
-
-// TO SHARE
-export const toShare: MenuItem[] = [
-  {
-    id: 'share-agurk-salad',
-    name: 'Agurk Salad',
-    nameEn: 'Cucumber Salad',
-    description: 'Refreshing Danish cucumber salad',
-    price: 49,
-    category: 'share',
-    isVegetarian: true,
-    availability: 'everyday',
-  },
-  {
-    id: 'share-mala-lotus',
-    name: 'Chili Oil Beef Lotus Mala',
-    description: 'Spicy beef with lotus root in numbing chili oil',
-    price: 69,
-    category: 'share',
-    availability: 'everyday',
-  },
-  {
-    id: 'share-silky-tofu',
-    name: 'Silky Tofu w/ Chili Oil',
-    description: 'Soft tofu in aromatic chili oil',
-    price: 49,
-    category: 'share',
-    isVegetarian: true,
-    availability: 'everyday',
-  },
-  {
-    id: 'share-prawn-toast',
-    name: 'Prawn Toast',
-    description: 'Crispy toast topped with prawn mixture',
-    priceOption: '4 pieces for 69KR',
-    price: 69,
-    category: 'share',
-    availability: 'everyday',
-  },
-];
-
-// SPECIALS (Weekend/Monthly)
-export const specials: MenuItem[] = [
-  {
-    id: 'special-char-siu',
-    name: 'Char Siu Bao',
-    description: 'Classic BBQ pork bun',
-    price: 45,
-    category: 'special',
-    availability: 'weekend',
-  },
-  {
-    id: 'special-custard',
-    name: 'Custard Bao',
-    description: 'Sweet custard-filled bao',
-    price: 45,
-    category: 'special',
-    availability: 'weekend',
-  },
-  {
-    id: 'special-chives-pork',
-    name: 'Chives & Pork Bao',
-    description: 'Savory chives and pork filling',
-    price: 45,
-    category: 'special',
-    availability: 'weekend',
-  },
-  {
-    id: 'special-bolo-custard',
-    name: 'Bolo Bao with Custard',
-    description: 'Sweet pineapple bun with custard filling',
-    price: 50,
-    category: 'special',
-    availability: 'monthly',
-  },
-  {
-    id: 'special-bolo-sesame',
-    name: 'Bolo Bao with Black Sesame',
-    description: 'Sweet pineapple bun with black sesame filling',
-    price: 50,
-    category: 'special',
-    availability: 'monthly',
-  },
-  {
-    id: 'special-xlb',
-    name: 'XLB (Soup Dumplings)',
-    description: 'Pork, vegetable, or chicken soup dumplings',
-    priceOption: '4 for 69KR',
-    price: 69,
-    category: 'special',
-    availability: 'weekend',
-  },
-];
-
-// DESSERT
-export const desserts: MenuItem[] = [
-  {
-    id: 'dessert-black-sesame-ice',
-    name: 'Black Sesame Soft Ice',
-    description: 'Creamy soft-serve ice cream with nutty black sesame flavor',
-    price: 60,
-    category: 'dessert',
-    isVegetarian: true,
-    availability: 'everyday',
-  },
-];
-
-// DRINKS
+// COFFEE & DRINKS
 export const drinks: MenuItem[] = [
   {
-    id: 'drink-americano',
-    name: 'Americano',
+    id: 'drink-americano-large',
+    name: 'Americano (Large)',
     description: 'Espresso with hot water',
     price: 35,
     category: 'drink',
+    availability: 'everyday',
+  },
+  {
+    id: 'drink-americano-small',
+    name: 'Americano (Small)',
+    description: 'Espresso with hot water',
+    price: 28,
+    category: 'drink',
+    availability: 'everyday',
+  },
+  {
+    id: 'drink-cappuccino',
+    name: 'Cappuccino',
+    description: 'Espresso with steamed milk and foam',
+    price: 42,
+    category: 'drink',
+    availability: 'everyday',
+  },
+  {
+    id: 'drink-flat-white',
+    name: 'Flat White',
+    description: 'Espresso with velvety microfoam',
+    price: 42,
+    category: 'drink',
+    availability: 'everyday',
+  },
+  {
+    id: 'drink-latte',
+    name: 'Latte',
+    description: 'Espresso with steamed milk',
+    price: 45,
+    category: 'drink',
+    availability: 'everyday',
+  },
+];
+
+// HOT DRINKS
+export const hotDrinks: MenuItem[] = [
+  {
+    id: 'hot-soya-milk',
+    name: 'Hot Soya Milk',
+    description: 'Homemade hot soya milk',
+    price: 35,
+    category: 'hot-drink',
+    isVegetarian: true,
+    isVegan: true,
+    availability: 'everyday',
+  },
+  {
+    id: 'hot-jasmine-tea',
+    name: 'Jasmine Tea',
+    description: 'Fragrant jasmine tea',
+    price: 25,
+    category: 'hot-drink',
     isVegetarian: true,
     isVegan: true,
     availability: 'everyday',
@@ -218,20 +256,22 @@ export const drinks: MenuItem[] = [
 
 // Combine all menu items
 export const allMenuItems: MenuItem[] = [
+  ...rice,
+  ...noodles,
+  ...sides,
   ...baos,
-  ...bowls,
-  ...toShare,
-  ...specials,
-  ...desserts,
+  ...addons,
   ...drinks,
+  ...hotDrinks,
 ];
 
 // Export by category for easy access
 export const menuByCategory = {
+  rice,
+  noodles,
+  sides,
+  addons,
   baos,
-  bowls,
-  toShare,
-  specials,
-  desserts,
   drinks,
+  hotDrinks,
 };

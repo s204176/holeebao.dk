@@ -18,19 +18,16 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center group">
             <img
-              src="/images/logos/001_WnY_CMYK@4x.png"
+              src="/images/logos/001_Y_CMYK@4x.png"
               alt="Holee Bao"
               className="h-8 w-auto"
             />
-            <span className="text-white font-display font-bold text-xl group-hover:text-white/80 transition-colors">
-              HO LEE BAO
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {links.map((link) => (
               <Link
                 key={link.path}
@@ -46,6 +43,16 @@ export default function Navigation() {
                 )}
               </Link>
             ))}
+
+            {/* Order Takeaway Button */}
+            <a
+              href="https://holeebao.dully.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-white rounded-full text-bao-golden-dark font-bold text-sm hover:scale-105 transition-transform"
+            >
+              Order
+            </a>
 
             {/* Instagram Link */}
             <a
@@ -95,6 +102,14 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
+            <a
+              href="https://holeebao.dully.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block py-3 text-white font-bold"
+            >
+              Order Takeaway →
+            </a>
             <a
               href="https://www.instagram.com/holeebao.cph/"
               target="_blank"

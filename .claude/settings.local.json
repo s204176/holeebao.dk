@@ -26,7 +26,15 @@
       "Bash(netstat:*)",
       "Bash(findstr:*)",
       "Bash(taskkill /F /PID 57208)",
-      "Bash(taskkill:*)"
+      "Bash(taskkill:*)",
+      "Bash(mkdir:*)",
+      "Bash(git fetch:*)",
+      "Bash(tasklist:*)",
+      "Bash(grep:*)",
+      "Bash(npm run build:*)",
+      "Bash(dir:*)",
+      "Bash(size \"c:\\\\Users\\\\vince\\\\Documents\\\\holeebao\\\\nul\")",
+      "Bash(npm audit:*)"
     ]
   },
   "enableAllProjectMcpServers": true,

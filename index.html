@@ -30,11 +30,20 @@
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
 
+    <!-- Preload custom fonts -->
+    <link rel="preload" href="/fonts/Vrau%20Loux.woff2" as="font" type="font/woff2" crossorigin />
+
     <!-- Theme Color -->
     <meta name="theme-color" content="#E8B84D" />
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // Disable browser scroll restoration
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

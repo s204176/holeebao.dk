@@ -22,8 +22,8 @@ export default {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
       fontFamily: {
-        'display': ['ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
-        'sans': ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        'display': ['"Vrau Loux"', 'ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+        'sans': ['"Vrau Loux"', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
       },
       animation: {
         'float': 'float 3s ease-in-out infinite',
