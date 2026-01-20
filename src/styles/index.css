@@ -16,7 +16,7 @@
 @layer base {
   html {
     @apply h-full m-0;
-    background-color: #FAFAFA;
+    background-color: #E8B84D;
     overflow-x: hidden;
     overflow-y: auto;
     scroll-behavior: smooth;
