@@ -1,6 +1,7 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import AppRouter from './AppRouter'
+import { Analytics } from '@vercel/analytics/react'
 import ErrorBoundary from './components/layout/ErrorBoundary'
 import './styles/index.css'
 
@@ -12,6 +13,7 @@ root.render(
   <React.StrictMode>
     <ErrorBoundary>
       <AppRouter />
+      <Analytics />
     </ErrorBoundary>
   </React.StrictMode>
 )
