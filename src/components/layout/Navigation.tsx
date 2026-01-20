@@ -22,7 +22,7 @@ export default function Navigation() {
             <img
               src="/images/logos/001_Y_CMYK@4x.png"
               alt="Holee Bao"
-              className="h-8 w-auto"
+              className="h-10 w-auto"
             />
           </Link>
 

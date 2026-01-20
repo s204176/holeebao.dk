@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
+import Footer from '../components/layout/Footer';
 
 // SVG Icon component
 const LocationIcon = ({ type }: { type: string }) => {
@@ -207,6 +208,7 @@ export default function LocationPage() {
             </div>
           </motion.div>
         </div>
+        <Footer className="mt-8" />
       </div>
     </div>
   );

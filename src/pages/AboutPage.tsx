@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
+import Footer from '../components/layout/Footer';
 
 // SVG Icon component for feature cards
 const FeatureIcon = ({ type }: { type: string }) => {
@@ -169,6 +170,7 @@ export default function AboutPage() {
             </div>
           </motion.div>
         </div>
+        <Footer className="mt-8" />
       </div>
     </div>
   );

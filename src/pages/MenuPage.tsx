@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { menuByCategory } from '../data/menuData';
+import Footer from '../components/layout/Footer';
 
 export default function MenuPage() {
   // Force scroll to top on mount
@@ -86,7 +87,7 @@ export default function MenuPage() {
 
         {/* WEEKEND SPECIAL TEASER */}
         <motion.section
-          className="mt-16"
+          className="mt-16 mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0 }}
@@ -155,6 +156,8 @@ export default function MenuPage() {
           delay={0.9}
           startNumber={18}
         />
+
+        <Footer className="mt-8" />
       </div>
     </div>
   );
@@ -204,7 +207,12 @@ function MenuSection({ title, subtitle, items, delay, badge, startNumber = 1, hi
                 <img
                   src={`/images/menu/${item.image}.png`}
                   alt={item.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover menu-image"
+                  loading="lazy"
+                  decoding="async"
+                  onLoad={(event) => {
+                    event.currentTarget.classList.add('is-loaded');
+                  }}
                 />
               </div>
             )}
