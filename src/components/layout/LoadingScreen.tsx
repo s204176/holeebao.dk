@@ -16,7 +16,7 @@ export default function LoadingScreen() {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-contain mb-6"
+        className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-contain mb-3"
         style={{ filter: 'drop-shadow(0 4px 20px rgba(0,0,0,0.15))' }}
       />
 
@@ -25,7 +25,7 @@ export default function LoadingScreen() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white mb-3"
+        className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white mb-2"
         style={{ textShadow: '0 2px 20px rgba(0,0,0,0.2)' }}
       >
         HO LEE BAO

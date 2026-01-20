@@ -47,9 +47,8 @@ function BackgroundEffects({ enabled }: { enabled: boolean }) {
   // Only show on home and menu pages
   const showBackground = location.pathname === '/' || location.pathname === '/menu';
 
-  if (!enabled || !showBackground) return null;
-
   useEffect(() => {
+    if (!enabled || !showBackground) return;
     const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
     const blurMax = isCoarsePointer ? 3 : 8;
     const opacityMin = 0.2;
@@ -90,7 +89,9 @@ function BackgroundEffects({ enabled }: { enabled: boolean }) {
       window.removeEventListener('scroll', handleScroll);
       if (rafId) cancelAnimationFrame(rafId);
     };
-  }, []);
+  }, [enabled, showBackground]);
+
+  if (!enabled || !showBackground) return null;
 
   return (
     <>
