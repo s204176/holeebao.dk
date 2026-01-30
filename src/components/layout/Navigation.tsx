@@ -44,15 +44,25 @@ export default function Navigation() {
               </Link>
             ))}
 
-            {/* Order Takeaway Button */}
-            <a
-              href="https://holeebao.dully.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-white rounded-full text-bao-golden-dark font-bold text-sm hover:scale-105 transition-transform"
-            >
-              Order
-            </a>
+            {/* Order Buttons */}
+            <div className="flex gap-2">
+              <a
+                href="https://holeebao.dully.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-white rounded-full text-bao-golden-dark font-bold text-sm hover:scale-105 transition-transform"
+              >
+                Pickup
+              </a>
+              <a
+                href="https://wolt.com/en/dnk/copenhagen/restaurant/ho-lee-bao"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-white rounded-full text-bao-golden-dark font-bold text-sm hover:scale-105 transition-transform"
+              >
+                Delivery
+              </a>
+            </div>
 
             {/* Instagram Link */}
             <a
@@ -108,7 +118,15 @@ export default function Navigation() {
               rel="noopener noreferrer"
               className="block py-3 text-white font-bold"
             >
-              Order Takeaway →
+              Order Pickup →
+            </a>
+            <a
+              href="https://wolt.com/en/dnk/copenhagen/restaurant/ho-lee-bao"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block py-3 text-white font-bold"
+            >
+              Order Delivery →
             </a>
             <a
               href="https://www.instagram.com/holeebao.cph/"
