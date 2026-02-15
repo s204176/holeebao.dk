@@ -29,24 +29,47 @@ export default function MenuPage() {
           </p>
         </motion.div>
 
+        {/* PDF Menu Embed */}
+        <motion.div
+          className="bg-white rounded-3xl overflow-hidden shadow-2xl mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <object
+            data="/images/FINAL-FINAL-HLB-MENU.pdf"
+            type="application/pdf"
+            className="w-full h-[500px] sm:h-[600px] md:h-[700px]"
+          >
+            {/* Fallback for browsers that don't support PDF embed */}
+            <div className="w-full h-[500px] sm:h-[600px] md:h-[700px] flex flex-col items-center justify-center bg-gray-100 p-8">
+              <svg className="w-24 h-24 text-bao-golden-dark mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <h3 className="text-gray-900 font-bold text-2xl mb-4 text-center">Our Full Menu</h3>
+              <p className="text-gray-600 text-center mb-6">Click below to view our complete menu</p>
+              <a
+                href="/images/FINAL-FINAL-HLB-MENU.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-bao-golden rounded-full text-white font-bold text-lg hover:bg-bao-golden-dark hover:scale-105 transition-all duration-300"
+              >
+                View Menu PDF
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </object>
+        </motion.div>
+
         {/* Order Buttons */}
         <motion.div
           className="text-center mb-16 flex flex-col sm:flex-row items-center justify-center gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <a
-            href="/images/FINAL-FINAL-HLB-MENU.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-white rounded-full text-bao-golden-dark font-bold text-lg hover:scale-105 hover:shadow-xl transition-all duration-300"
-          >
-            View Full Menu (PDF)
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-          </a>
           <a
             href="https://holeebao.dully.io/"
             target="_blank"
