@@ -19,15 +19,6 @@ export interface MenuItem {
 // BAOS - 1 for 30KR / 3 for 70KR (Steamed)
 export const baos: MenuItem[] = [
   {
-    id: 'bao-ducking-good',
-    name: 'Duck Bao',
-    description: 'Tender duck with hoisin and cucumber',
-    priceOption: '1 for 30KR / 3 for 70KR',
-    category: 'bao',
-    cookingMethod: 'steamed',
-    availability: 'everyday',
-  },
-  {
     id: 'bao-mala-beef',
     name: 'Mala Beef Bao',
     description: 'Spicy Sichuan beef with numbing mala spice',

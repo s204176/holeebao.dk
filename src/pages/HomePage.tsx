@@ -5,46 +5,6 @@ import SteamEffect from '../components/effects/SteamEffect';
 import TiltWrapper from '../components/effects/TiltWrapper';
 import Footer from '../components/layout/Footer';
 
-// Featured menu items for preview
-const featuredItems = [
-  {
-    id: 'bao-char-siu',
-    name: 'Char Siu Bao',
-    description: 'Sweet and savory BBQ pork',
-    price: '30KR',
-    tag: 'SIGNATURE',
-    tagColor: 'bg-red-100 text-red-700',
-    image: '13',
-  },
-  {
-    id: 'rice-braised-beef',
-    name: 'Braised Beef Rice',
-    description: 'Slow-cooked beef served with rice',
-    price: '109KR',
-    tag: 'SIGNATURE',
-    tagColor: 'bg-red-100 text-red-700',
-    image: '1',
-  },
-  {
-    id: 'side-shrimp-toast',
-    name: 'Crunchy Shrimp Toast',
-    description: 'Crispy toast topped with shrimp (sweet chili included)',
-    price: '79KR',
-    tag: 'POPULAR',
-    tagColor: 'bg-purple-100 text-purple-700',
-    image: '7',
-  },
-  {
-    id: 'side-spicy-dumplings',
-    name: 'Spicy Boiled Dumplings',
-    description: 'Boiled dumplings with spicy sauce',
-    price: '69KR',
-    tag: 'SPICY',
-    tagColor: 'bg-orange-100 text-orange-700',
-    image: '8',
-  },
-];
-
 // Philosophy features - using SVG icons instead of emojis
 const FeatureIcon = ({ type }: { type: string }) => {
   const iconClass = "w-8 h-8 text-bao-golden-dark";
@@ -216,7 +176,7 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* ============ MENU PREVIEW SECTION ============ */}
+      {/* ============ MENU SECTION ============ */}
       <motion.section
         className="py-24 px-6 w-full max-w-full overflow-x-hidden"
         initial={{ opacity: 0, scale: 0.98 }}
@@ -227,7 +187,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -236,61 +196,25 @@ export default function HomePage() {
             <h2 className="text-white font-display font-bold text-4xl sm:text-5xl md:text-6xl mb-4">
               The Menu
             </h2>
-            <p className="text-white/70 text-lg sm:text-xl">
+            <p className="text-white/70 text-lg sm:text-xl mb-8">
               Fresh. Simple. Holee Good.
             </p>
           </motion.div>
 
-          {/* Featured Items Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            {featuredItems.map((item, index) => (
-              <motion.div
-                key={item.id}
-                className="group bg-white/95 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
-                whileHover={{ scale: 1.02, y: -4 }}
-              >
-                {/* Image */}
-                <div className="aspect-[16/10] bg-bao-golden/20 relative overflow-hidden">
-                  <picture className="block w-full h-full">
-                    <source
-                      type="image/webp"
-                      srcSet={`/images/menu/optimized/${item.image}-480.webp 480w, /images/menu/optimized/${item.image}-768.webp 768w, /images/menu/optimized/${item.image}-1024.webp 1024w`}
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                    <img
-                      src={`/images/menu/${item.image}.png`}
-                      alt={item.name}
-                      className="w-full h-full object-cover menu-image"
-                      loading="lazy"
-                      decoding="async"
-                      fetchPriority="low"
-                      onLoad={(event) => {
-                        event.currentTarget.classList.add('is-loaded');
-                      }}
-                    />
-                  </picture>
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-bao-golden/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-gray-900 font-bold text-xl">{item.name}</h3>
-                    <span className="text-bao-golden-dark font-bold text-lg whitespace-nowrap ml-4">
-                      {item.price}
-                    </span>
-                  </div>
-                  <p className="text-gray-600 text-sm mb-3 leading-relaxed">
-                    {item.description}
-                  </p>
-                  <span className={`inline-block px-2 py-1 ${item.tagColor} text-xs font-bold rounded-full`}>
-                    {item.tag}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          {/* PDF Menu Embed */}
+          <motion.div
+            className="bg-white rounded-3xl overflow-hidden shadow-2xl mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <iframe
+              src="/images/FINAL-FINAL-HLB-MENU.pdf"
+              className="w-full h-[600px] sm:h-[700px] md:h-[800px]"
+              title="Ho Lee Bao Menu"
+            />
+          </motion.div>
 
           {/* CTAs */}
           <motion.div
@@ -331,7 +255,7 @@ export default function HomePage() {
               }}
               className="inline-flex items-center gap-3 px-8 py-4 bg-white/20 backdrop-blur-sm border-2 border-white rounded-full text-white font-bold text-lg hover:scale-105 hover:bg-white/30 transition-all duration-300"
             >
-              View Full Menu
+              Menu Page
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -482,8 +406,12 @@ export default function HomePage() {
                   <span className="text-gray-400 font-medium">Closed</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-gray-200">
-                  <span className="text-gray-700">Tuesday - Sunday</span>
-                  <span className="text-gray-900 font-bold">11:00 - 18:00</span>
+                  <span className="text-gray-700">Tuesday - Friday</span>
+                  <span className="text-gray-900 font-bold">15:00 - 20:00</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-gray-200">
+                  <span className="text-gray-700">Saturday - Sunday</span>
+                  <span className="text-gray-900 font-bold">11:00 - 20:00</span>
                 </div>
               </div>
               <p className="text-gray-500 text-sm mt-4 text-center">
