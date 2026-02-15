@@ -128,12 +128,12 @@ export default function LocationPage() {
 
             <div className="max-w-md mx-auto space-y-4">
               <HoursRow day="Monday" hours="Closed" />
-              <HoursRow day="Tuesday" hours="11:00 - 18:00" />
-              <HoursRow day="Wednesday" hours="11:00 - 18:00" />
-              <HoursRow day="Thursday" hours="11:00 - 18:00" />
-              <HoursRow day="Friday" hours="11:00 - 18:00" />
-              <HoursRow day="Saturday" hours="11:00 - 18:00" />
-              <HoursRow day="Sunday" hours="11:00 - 18:00" />
+              <HoursRow day="Tuesday" hours="15:00 - 20:00" />
+              <HoursRow day="Wednesday" hours="15:00 - 20:00" />
+              <HoursRow day="Thursday" hours="15:00 - 20:00" />
+              <HoursRow day="Friday" hours="15:00 - 20:00" />
+              <HoursRow day="Saturday" hours="11:00 - 20:00" />
+              <HoursRow day="Sunday" hours="11:00 - 20:00" />
             </div>
 
             <div className="mt-8 text-center">
@@ -195,7 +195,7 @@ export default function LocationPage() {
             </div>
             <div className="p-6 text-center">
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Åboulevard+7+st+tv+1635+København+V"
+                href="https://www.google.com/maps/search/?api=1&query=Åboulevard+7+1635+København+V"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-full text-black font-bold hover:scale-105 transition-transform"

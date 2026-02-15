@@ -37,6 +37,17 @@ export default function MenuPage() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <a
+            href="/images/FINAL-FINAL-HLB-MENU.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-white rounded-full text-bao-golden-dark font-bold text-lg hover:scale-105 hover:shadow-xl transition-all duration-300"
+          >
+            View Full Menu (PDF)
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </a>
+          <a
             href="https://holeebao.dully.io/"
             target="_blank"
             rel="noopener noreferrer"
@@ -60,38 +71,29 @@ export default function MenuPage() {
           </a>
         </motion.div>
 
-        {/* RICE Section */}
+        {/* BAOS Section */}
         <MenuSection
-          title="Rice"
-          subtitle="Served with rice"
-          items={menuByCategory.rice}
-          delay={0.3}
+          title="Baos"
+          subtitle="1 for 30KR • 3 for 70KR • Steamed"
+          items={menuByCategory.baos}
+          delay={0.4}
           startNumber={1}
         />
 
-        {/* NOODLES Section */}
+        {/* COFFEE Section */}
         <MenuSection
-          title="Noodles"
-          subtitle="Served with noodles"
-          items={menuByCategory.noodles}
-          delay={0.4}
-          startNumber={4}
-        />
-
-        {/* SIDES Section */}
-        <MenuSection
-          title="Sides"
-          subtitle="Small bites"
-          items={menuByCategory.sides}
+          title="Coffee"
+          subtitle="Espresso-based drinks"
+          items={menuByCategory.drinks}
           delay={0.5}
-          startNumber={7}
+          hideNumbers={true}
         />
 
-        {/* ADD-ONS Section */}
+        {/* HOT DRINKS Section */}
         <MenuSection
-          title="Add-ons"
-          subtitle="Tilvalg til retterne (Not for baos)"
-          items={menuByCategory.addons}
+          title="Hot Drinks"
+          subtitle="Tea & more"
+          items={menuByCategory.hotDrinks}
           delay={0.6}
           hideNumbers={true}
         />
@@ -101,7 +103,7 @@ export default function MenuPage() {
           className="mt-16 mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
         >
           <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-3xl overflow-hidden border-2 border-white/30 relative">
             {/* Decorative elements */}
@@ -112,7 +114,7 @@ export default function MenuPage() {
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.6, delay: 1.2 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
               >
                 <span className="inline-block px-4 py-2 bg-purple-500/30 text-purple-200 text-sm font-bold rounded-full mb-4">
                   WEEKEND SPECIAL
@@ -140,33 +142,6 @@ export default function MenuPage() {
             </div>
           </div>
         </motion.section>
-
-        {/* BAOS Section */}
-        <MenuSection
-          title="Baos"
-          subtitle="1 for 30KR • 3 for 70KR • Steamed"
-          items={menuByCategory.baos}
-          delay={0.7}
-          startNumber={9}
-        />
-
-        {/* COFFEE Section */}
-        <MenuSection
-          title="Coffee"
-          subtitle="Espresso-based drinks"
-          items={menuByCategory.drinks}
-          delay={0.8}
-          startNumber={13}
-        />
-
-        {/* HOT DRINKS Section */}
-        <MenuSection
-          title="Hot Drinks"
-          subtitle="Tea & more"
-          items={menuByCategory.hotDrinks}
-          delay={0.9}
-          startNumber={18}
-        />
 
         <Footer className="mt-8" />
       </div>
@@ -212,30 +187,6 @@ function MenuSection({ title, subtitle, items, delay, badge, startNumber = 1, hi
             key={item.id}
             className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden hover:bg-white/15 transition-all duration-300 border border-white/20 hover:scale-[1.02] hover:-translate-y-1"
           >
-            {/* Image */}
-            {item.image && (
-              <div className="aspect-[4/3] bg-white/5 relative overflow-hidden">
-                <picture className="block w-full h-full">
-                  <source
-                    type="image/webp"
-                    srcSet={`/images/menu/optimized/${item.image}-480.webp 480w, /images/menu/optimized/${item.image}-768.webp 768w, /images/menu/optimized/${item.image}-1024.webp 1024w`}
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <img
-                    src={`/images/menu/${item.image}.png`}
-                    alt={item.name}
-                    className="w-full h-full object-cover menu-image"
-                    loading="lazy"
-                    decoding="async"
-                    fetchPriority="low"
-                    onLoad={(event) => {
-                      event.currentTarget.classList.add('is-loaded');
-                    }}
-                  />
-                </picture>
-              </div>
-            )}
-
             <div className="p-6">
               <div className="flex justify-between items-start mb-3">
                 <h3 className="text-white font-bold text-xl">
