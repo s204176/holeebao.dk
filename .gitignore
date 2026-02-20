@@ -34,3 +34,4 @@ lerna-debug.log*
 # Internal documentation and Claude settings
 docs/
 .claude/
+.npm-cache/
