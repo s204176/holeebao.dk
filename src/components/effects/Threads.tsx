@@ -23,8 +23,8 @@ uniform vec2 uMouse;
 
 #define PI 3.1415926538
 
-const int u_line_count = 24;
-const float u_line_width = 5.0;
+const int u_line_count = 10;
+const float u_line_width = 7.0;
 const float u_line_blur = 6.0;
 
 float Perlin2D(vec2 P) {
@@ -124,6 +124,7 @@ interface ThreadsProps {
   distance?: number;
   enableMouseInteraction?: boolean;
   maxFps?: number;
+  paused?: boolean;
 }
 
 const Threads = ({
@@ -131,11 +132,18 @@ const Threads = ({
   amplitude = 1,
   distance = 0,
   enableMouseInteraction = false,
-  maxFps = 30,
+  maxFps = 20,
+  paused = false,
   ...rest
 }: ThreadsProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const animationFrameId = useRef<number>();
+  const pausedRef = useRef(paused);
+
+  // Keep pausedRef in sync without re-running the effect
+  useEffect(() => {
+    pausedRef.current = paused;
+  }, [paused]);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -146,7 +154,8 @@ const Threads = ({
     const timeScale = prefersReducedMotion ? 0.2 : isCoarsePointer ? 0.45 : 1;
     const amplitudeScale = isCoarsePointer ? 0.7 : 1;
     const distanceScale = isCoarsePointer ? 0.85 : 1;
-    const dpr = Math.min(isCoarsePointer ? 1.25 : 1.1, window.devicePixelRatio || 1);
+    // Cap DPR at 1 to save GPU
+    const dpr = 1;
 
     const renderer = new Renderer({ alpha: true, dpr });
     const gl = renderer.gl;
@@ -224,11 +233,14 @@ const Threads = ({
     const frameInterval = 1000 / safeMaxFps;
 
     function update(t: number) {
-      if (t - lastFrameTime < frameInterval) {
-        animationFrameId.current = requestAnimationFrame(update);
-        return;
-      }
+      animationFrameId.current = requestAnimationFrame(update);
+
+      // Skip rendering when paused
+      if (pausedRef.current) return;
+
+      if (t - lastFrameTime < frameInterval) return;
       lastFrameTime = t;
+
       if (allowMouseInteraction) {
         const smoothing = 0.05;
         currentMouse[0] += smoothing * (targetMouse[0] - currentMouse[0]);
@@ -242,7 +254,6 @@ const Threads = ({
       program.uniforms.iTime.value = t * 0.001 * timeScale;
 
       renderer.render({ scene: mesh });
-      animationFrameId.current = requestAnimationFrame(update);
     }
     animationFrameId.current = requestAnimationFrame(update);
 

@@ -4,48 +4,6 @@ import SteamEffect from '../components/effects/SteamEffect';
 import TiltWrapper from '../components/effects/TiltWrapper';
 import Footer from '../components/layout/Footer';
 
-// Philosophy features - using SVG icons instead of emojis
-const FeatureIcon = ({ type }: { type: string }) => {
-  const iconClass = "w-8 h-8 text-bao-golden-dark";
-  switch (type) {
-    case 'steam':
-      return (
-        <svg className={iconClass} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
-        </svg>
-      );
-    case 'target':
-      return (
-        <svg className={iconClass} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-        </svg>
-      );
-    case 'blend':
-      return (
-        <svg className={iconClass} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-        </svg>
-      );
-    case 'bolt':
-      return (
-        <svg className={iconClass} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      );
-    default:
-      return null;
-  }
-};
-
-const features = [
-  { icon: 'steam', title: 'Fresh Steamed' },
-  { icon: 'target', title: 'Focused Menu' },
-  { icon: 'blend', title: 'Modern + Traditional' },
-  { icon: 'bolt', title: 'Quick Service' },
-];
-
-
 export default function HomePage() {
   const emailUser = 'info';
   const emailDomain = ['holeebao', 'dk'].join('.');
@@ -249,52 +207,6 @@ export default function HomePage() {
           </motion.div>
         </div>
       </motion.section>
-
-      {/* ============ PHILOSOPHY SECTION ============ */}
-      <section className="py-24 px-6 w-full max-w-full overflow-x-hidden">
-        <div className="max-w-4xl mx-auto">
-          {/* Quote */}
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-          >
-            <blockquote className="text-white text-2xl sm:text-3xl md:text-4xl font-display italic leading-relaxed mb-8">
-              "Modern Chinese food without the fuss."
-            </blockquote>
-            <p className="text-white/70 text-lg">
-              Same team behind <span className="text-white font-semibold">Lee's Kitchen</span> (est. 2021)
-            </p>
-          </motion.div>
-
-          {/* Feature Strip */}
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-4"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                className="bg-white/90 rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-              >
-                <div className="flex justify-center mb-3">
-                  <FeatureIcon type={feature.icon} />
-                </div>
-                <h3 className="text-gray-900 font-bold text-sm sm:text-base">{feature.title}</h3>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
 
       {/* ============ LOCATION & FOOTER SECTION ============ */}
       <section className="pt-16 pb-4 px-6 border-t border-white/10 w-full max-w-full overflow-x-hidden">

@@ -14,7 +14,7 @@ export default function SteamEffect() {
 
   useEffect(() => {
     // Generate steam particles - more and bigger for visibility
-    const newParticles: SteamParticle[] = Array.from({ length: 20 }, (_, i) => ({
+    const newParticles: SteamParticle[] = Array.from({ length: 8 }, (_, i) => ({
       id: i,
       left: 30 + Math.random() * 40, // Spread across logo area
       delay: (Math.random() * 5) - 2, // Negative delays so some particles are already mid-cycle

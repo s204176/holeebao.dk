@@ -7,7 +7,6 @@ import AboutPage from './pages/AboutPage';
 import LocationPage from './pages/LocationPage';
 import LoadingScreen from './components/layout/LoadingScreen';
 import Threads from './components/effects/Threads';
-import FloatingBaos from './components/effects/FloatingBaos';
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -41,19 +40,16 @@ function ScrollToTop() {
 function BackgroundEffects({ enabled }: { enabled: boolean }) {
   const location = useLocation();
   const [threadsOpacity, setThreadsOpacity] = useState(1);
-  const [threadsBlur, setThreadsBlur] = useState(0);
+  const [threadsPaused, setThreadsPaused] = useState(false);
 
   // Only show on home page
   const showBackground = location.pathname === '/';
 
   useEffect(() => {
     if (!enabled || !showBackground) return;
-    const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
-    const blurMax = isCoarsePointer ? 3 : 0;
     const opacityMin = 0.2;
     let rafId = 0;
     let lastOpacity = 1;
-    let lastBlur = 0;
 
     const applyScroll = () => {
       rafId = 0;
@@ -63,18 +59,13 @@ function BackgroundEffects({ enabled }: { enabled: boolean }) {
       const opacity = Math.max(0, 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart));
       const nextOpacity = Math.min(1, Math.max(opacityMin, opacity));
 
-      const blurStart = 50;
-      const blurEnd = 500;
-      const blur = Math.min(blurMax, Math.max(0, (scrollY - blurStart) / (blurEnd - blurStart) * blurMax));
-
       if (Math.abs(nextOpacity - lastOpacity) > 0.01) {
         lastOpacity = nextOpacity;
         setThreadsOpacity(nextOpacity);
       }
-      if (Math.abs(blur - lastBlur) > 0.2) {
-        lastBlur = blur;
-        setThreadsBlur(blur);
-      }
+
+      // Pause the WebGL shader when scrolled past hero to save GPU
+      setThreadsPaused(scrollY > 800);
     };
 
     const handleScroll = () => {
@@ -93,23 +84,18 @@ function BackgroundEffects({ enabled }: { enabled: boolean }) {
   if (!enabled || !showBackground) return null;
 
   return (
-    <>
-      <div
-        className="fixed inset-0 z-0 transition-all duration-150"
-        style={{
-          opacity: threadsOpacity,
-          ...(threadsBlur > 0 ? { filter: `blur(${threadsBlur}px)` } : {}),
-        }}
-      >
-        <Threads
-          color={[1, 1, 1]}
-          amplitude={0.3}
-          distance={0.8}
-          enableMouseInteraction={false}
-        />
-      </div>
-      <FloatingBaos />
-    </>
+    <div
+      className="fixed inset-0 z-0"
+      style={{ opacity: threadsOpacity }}
+    >
+      <Threads
+        color={[1, 1, 1]}
+        amplitude={0.3}
+        distance={0.8}
+        enableMouseInteraction={false}
+        paused={threadsPaused}
+      />
+    </div>
   );
 }
 
