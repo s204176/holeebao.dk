@@ -8,7 +8,6 @@ export default function Navigation() {
 
   const links = [
     { path: '/', label: 'Home' },
-    { path: '/menu', label: 'Menu' },
     { path: '/about', label: 'About' },
     { path: '/location', label: 'Location' },
   ];

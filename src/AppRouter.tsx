@@ -3,7 +3,6 @@ import { useState, useEffect, useLayoutEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Navigation from './components/layout/Navigation';
 import HomePage from './pages/HomePage';
-import MenuPage from './pages/MenuPage';
 import AboutPage from './pages/AboutPage';
 import LocationPage from './pages/LocationPage';
 import LoadingScreen from './components/layout/LoadingScreen';
@@ -44,8 +43,8 @@ function BackgroundEffects({ enabled }: { enabled: boolean }) {
   const [threadsOpacity, setThreadsOpacity] = useState(1);
   const [threadsBlur, setThreadsBlur] = useState(0);
 
-  // Only show on home and menu pages
-  const showBackground = location.pathname === '/' || location.pathname === '/menu';
+  // Only show on home page
+  const showBackground = location.pathname === '/';
 
   useEffect(() => {
     if (!enabled || !showBackground) return;
@@ -171,7 +170,6 @@ export default function AppRouter() {
             <div className="relative z-10 pt-20 w-full max-w-full overflow-x-hidden">
               <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/menu" element={<MenuPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/location" element={<LocationPage />} />
               </Routes>
